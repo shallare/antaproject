@@ -1,0 +1,152 @@
+/* =========================================
+   Programmes Section - Horizontal Strips
+   ========================================= */
+
+.programme-strips-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.programme-strip {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    /* Substantial height for visual impact */
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Space content to sides */
+    padding: 0 60px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    /* For anchor tags */
+    color: white;
+}
+
+.programme-strip:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Background Overlay */
+.strip-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: 1;
+}
+
+/* Video Background */
+.strip-bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    object-fit: cover;
+}
+
+/* Static Image Background */
+.strip-bg-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    transition: transform 0.5s ease;
+}
+
+.programme-strip:hover .strip-bg-image {
+    transform: scale(1.05);
+}
+
+/* Content Layout */
+.strip-content {
+    position: relative;
+    z-index: 2;
+    max-width: 60%;
+}
+
+.strip-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.strip-desc {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.strip-action {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-strip {
+    background: white;
+    color: var(--primary-blue);
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-strip:hover {
+    background: var(--primary-orange);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Specific Strip Styles */
+.strip-scolaire .strip-title {
+    color: #fff;
+}
+
+.strip-vacances .strip-title {
+    color: #fff;
+}
+
+/* White usually works best via video */
+
+/* Responsive */
+@media (max-width: 768px) {
+    .programme-strip {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        height: auto;
+        min-height: 350px;
+        padding: 40px 30px;
+    }
+
+    .strip-content {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .strip-title {
+        font-size: 1.8rem;
+    }
+}

@@ -1,0 +1,1943 @@
+/* ===================================
+   ANTA - Gamified Dashboard CSS
+   Adventure Map / Carte d'Aventure
+   =================================== */
+
+/* ===================================
+   Layout Override for Gamified Pages
+   =================================== */
+
+body.gamified-page {
+    background: #f8f7f5;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+body.gamified-page .dashboard-sidebar {
+    background: #ffffff;
+    border-right: 1px solid rgba(238, 153, 53, 0.12);
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.03);
+}
+
+body.gamified-page .sidebar-brand .logo-text {
+    color: var(--primary-blue);
+    -webkit-text-fill-color: var(--primary-blue);
+}
+
+body.gamified-page .sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+body.gamified-page .sidebar-nav ul li {
+    margin-bottom: 0.5rem;
+}
+
+body.gamified-page .sidebar-nav ul li a {
+    color: #64748b;
+    border-radius: 12px;
+    padding: 0.85rem 1.2rem;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+body.gamified-page .sidebar-nav ul li a i {
+    color: #94a3b8;
+    transition: color 0.25s ease;
+}
+
+body.gamified-page .sidebar-nav ul li a:hover {
+    background: rgba(26, 106, 187, 0.06);
+    color: #1a6abb;
+}
+
+body.gamified-page .sidebar-nav ul li a:hover i {
+    color: #1a6abb;
+}
+
+body.gamified-page .sidebar-nav ul li.active a {
+    background: rgba(238, 153, 53, 0.1);
+    color: #ee9935;
+    font-weight: 600;
+}
+
+body.gamified-page .sidebar-nav ul li.active a i {
+    color: #ee9935;
+}
+
+body.gamified-page .sidebar-footer {
+    padding: 0.5rem 1.2rem 1rem;
+}
+
+body.gamified-page .sidebar-logout {
+    color: #94a3b8 !important;
+}
+
+body.gamified-page .sidebar-logout:hover {
+    color: #981918 !important;
+    background: rgba(152, 25, 24, 0.06);
+}
+
+/* ===================================
+   Daily Streak Widget
+   =================================== */
+
+.streak-widget {
+    background: rgba(238, 153, 53, 0.06);
+    border: 1px solid rgba(238, 153, 53, 0.18);
+    border-radius: 16px;
+    padding: 1rem 1.2rem;
+    margin: 0 1rem 1rem;
+}
+
+.streak-widget .streak-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #ee9935;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 0.4rem;
+}
+
+.streak-widget .streak-value {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.streak-widget .streak-value i {
+    color: #ee9935;
+    font-size: 1.3rem;
+    animation: fireGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes fireGlow {
+    from {
+        filter: drop-shadow(0 0 3px rgba(238, 153, 53, 0.3));
+        transform: scale(1);
+    }
+
+    to {
+        filter: drop-shadow(0 0 8px rgba(238, 153, 53, 0.6));
+        transform: scale(1.1);
+    }
+}
+
+.streak-widget .streak-value span {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+/* ===================================
+   Gamified Topbar
+   =================================== */
+
+.gamified-topbar {
+    height: 72px;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    z-index: 10;
+    position: relative;
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.topbar-left .mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: #1e293b;
+    cursor: pointer;
+}
+
+.topbar-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    font-family: var(--font-display);
+}
+
+.level-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.9rem;
+    background: #ffffff;
+    border-radius: 50px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    font-size: 0.82rem;
+    font-weight: 500;
+}
+
+.level-badge i {
+    color: #ee9935;
+    font-size: 0.85rem;
+    animation: starPulse 2s ease-in-out infinite;
+}
+
+@keyframes starPulse {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: scale(1.2) rotate(15deg);
+    }
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.xp-display {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.4rem 1rem;
+    background: #ffffff;
+    border-radius: 50px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.xp-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.xp-item i.xp-coin {
+    color: #ee9935;
+    font-size: 1.15rem;
+}
+
+.xp-item i.xp-gem {
+    color: #1a6abb;
+    font-size: 1.15rem;
+}
+
+.xp-item span {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.xp-divider {
+    width: 1px;
+    height: 18px;
+    background: #e2e8f0;
+}
+
+.topbar-user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.topbar-user-info .user-details {
+    text-align: right;
+}
+
+.topbar-user-info .user-details .user-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1e293b;
+}
+
+.topbar-user-info .user-details .user-role {
+    font-size: 0.7rem;
+    color: #94a3b8;
+}
+
+.user-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2.5px solid #ee9935;
+    background: linear-gradient(135deg, #1a6abb, #2d8ae0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.user-avatar:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 16px rgba(238, 153, 53, 0.3);
+}
+
+/* ===================================
+   Adventure Map Area
+   =================================== */
+
+/* ===================================
+   Adventure Map Area
+   =================================== */
+
+.adventure-map {
+    flex: 1;
+    background: #e8f4fd;
+    position: relative;
+    overflow: auto;
+    margin: 0rem;
+    /* Hide scrollbar for cleaner look */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.adventure-map::-webkit-scrollbar {
+    display: none;
+}
+
+/* Circuit Theme Override */
+.adventure-map.circuit-theme {
+    background: linear-gradient(135deg, #1a6abb, #0f4c8a);
+    /* Platform Blue Gradient */
+    overflow: hidden;
+    /* We handle scroll via button or custom */
+    overflow-x: auto;
+}
+
+.circuit-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(26, 106, 187, 0.85), rgba(15, 76, 138, 0.9)),
+        url('../images/circuit-bg.png');
+    /* We will generate this or use CSS pattern */
+    background-size: cover;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Fallback CSS Pattern if image fails */
+.circuit-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+}
+
+.map-bg-dots {
+    background-image: radial-gradient(#bae6fd 1.2px, transparent 1.2px);
+    background-size: 40px 40px;
+}
+
+/* ===================================
+   Draggable Map Container
+   =================================== */
+
+.drag-wrapper {
+    width: 100%;
+    height: 75vh;
+    min-height: 700px;
+    /* Large visible area */
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #1a6abb, #0f4c8a);
+    /* Platform Blue */
+    cursor: grab;
+    z-index: 1;
+}
+
+.drag-wrapper:active {
+    cursor: grabbing;
+}
+
+.drag-container {
+    width: 2000px;
+    height: 1200px;
+    position: absolute;
+    /* Moved by JS */
+    top: 0;
+    left: 0;
+    /* Optional: Centered initially via JS */
+}
+
+/* Circuit Background Pattern (Orange Tint) */
+.circuit-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(238, 153, 53, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(238, 153, 53, 0.05) 1px, transparent 1px);
+    background-size: 100px 100px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.map-svg-large {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.map-large-content {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    /* Let clicks pass to islands */
+}
+
+/* Absolute Positioning for Islands */
+.drag-container .island {
+    position: absolute;
+    /* transform: translate(-50%, -50%);  <-- Handled in specific island hover rule below */
+    transform-origin: center center;
+    pointer-events: auto;
+}
+
+/* Update Island Hover to preserve centering */
+/* NOTE: We need to use specific transform values because of the translate(-50%, -50%) requirement for centering absolute elements */
+.drag-container .island {
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.35s ease;
+}
+
+.drag-container .island:hover {
+    transform: translate(-50%, -50%) translateY(-12px) scale(1.04);
+}
+
+.drag-container .island.locked:hover {
+    transform: translate(-50%, -50%) scale(1);
+    /* No float for locked */
+}
+
+/* Hidden Level Styles */
+.island.hidden-level .island-circle.small {
+    width: 120px;
+    height: 120px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 2px dashed rgba(238, 153, 53, 0.3);
+}
+
+.island.hidden-level .island-icon {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.5);
+    width: 80px;
+    height: 80px;
+}
+
+.island.hidden-level .island-info {
+    opacity: 0.8;
+    background: rgba(30, 41, 59, 0.9);
+    border: 1px dashed rgba(238, 153, 53, 0.3);
+}
+
+.island.hidden-level:hover .island-circle {
+    border-color: #ee9935;
+    background: rgba(238, 153, 53, 0.1);
+}
+
+.island.hidden-level:hover .island-icon {
+    color: #ee9935;
+}
+
+/* Orange Particles (Requested) */
+.particle {
+    background: rgba(238, 153, 53, 0.4);
+    /* Stronger Orange */
+}
+
+.particle-blue-variant {
+    background: rgba(255, 255, 255, 0.2);
+    /* Contrast */
+}
+
+/* Dark Theme Adjustments for Floating Cards */
+.circuit-theme .next-session-card {
+    background: rgba(30, 41, 59, 0.95);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.circuit-theme .next-session-card .session-title {
+    color: white;
+}
+
+.circuit-theme .next-session-card .session-label {
+    color: #94a3b8;
+}
+
+/* Dark Theme Islands */
+.circuit-theme .island-info {
+    background: rgba(30, 41, 59, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.circuit-theme .island-info h3 {
+    color: white;
+}
+
+.circuit-theme .island.active .island-circle {
+    box-shadow: 0 0 0 5px rgba(238, 153, 53, 0.3), 0 0 30px rgba(26, 106, 187, 0.4);
+}
+
+/* ===================================
+   Floating Particles
+   =================================== */
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 2;
+    animation: floatParticle 6s ease-in-out infinite;
+}
+
+.particle-1 {
+    width: 12px;
+    height: 12px;
+    background: rgba(238, 153, 53, 0.2);
+    top: 10%;
+    left: 15%;
+    animation-delay: 0s;
+    animation-duration: 7s;
+}
+
+.particle-2 {
+    width: 8px;
+    height: 8px;
+    background: rgba(26, 106, 187, 0.2);
+    top: 30%;
+    right: 20%;
+    animation-delay: 1s;
+    animation-duration: 5s;
+}
+
+.particle-3 {
+    width: 15px;
+    height: 15px;
+    background: rgba(34, 197, 94, 0.15);
+    bottom: 25%;
+    left: 25%;
+    animation-delay: 2s;
+    animation-duration: 8s;
+}
+
+.particle-4 {
+    width: 6px;
+    height: 6px;
+    background: rgba(238, 153, 53, 0.3);
+    top: 60%;
+    left: 50%;
+    animation-delay: 0.5s;
+    animation-duration: 6s;
+}
+
+.particle-5 {
+    width: 10px;
+    height: 10px;
+    background: rgba(26, 106, 187, 0.15);
+    bottom: 15%;
+    right: 30%;
+    animation-delay: 3s;
+    animation-duration: 9s;
+}
+
+.particle-6 {
+    width: 14px;
+    height: 14px;
+    background: rgba(234, 179, 8, 0.2);
+    top: 20%;
+    left: 60%;
+    animation-delay: 1.5s;
+    animation-duration: 7s;
+}
+
+.particle-7 {
+    width: 7px;
+    height: 7px;
+    background: rgba(238, 153, 53, 0.25);
+    bottom: 40%;
+    right: 10%;
+    animation-delay: 4s;
+    animation-duration: 5.5s;
+}
+
+.particle-8 {
+    width: 11px;
+    height: 11px;
+    background: rgba(26, 106, 187, 0.18);
+    top: 75%;
+    left: 35%;
+    animation-delay: 2.5s;
+    animation-duration: 6.5s;
+}
+
+@keyframes floatParticle {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0.6;
+    }
+
+    25% {
+        transform: translateY(-20px) translateX(10px) scale(1.2);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-10px) translateX(-15px) scale(0.8);
+        opacity: 0.4;
+    }
+
+    75% {
+        transform: translateY(-25px) translateX(5px) scale(1.1);
+        opacity: 0.9;
+    }
+}
+
+/* ===================================
+   Island Components
+   =================================== */
+
+.island {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.35s ease;
+}
+
+.island:hover {
+    transform: translateY(-12px) scale(1.04);
+}
+
+.island-circle {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.4s ease;
+}
+
+.island:hover .island-circle {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+
+.island-icon {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.2rem;
+    transition: transform 0.4s ease;
+}
+
+.island:hover .island-icon {
+    transform: rotate(5deg) scale(1.05);
+}
+
+/* Completed Island */
+.island.completed .island-circle {
+    background: #dcfce7;
+    border: 4px solid #ffffff;
+}
+
+.island.completed .island-icon {
+    background: rgba(34, 197, 94, 0.12);
+    color: #16a34a;
+}
+
+.island.completed .completion-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #22c55e;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    box-shadow: 0 4px 14px rgba(34, 197, 94, 0.45);
+    z-index: 6;
+    animation: badgePop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes badgePop {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Active Island */
+.island.active .island-circle {
+    background: #dbeafe;
+    border: 4px solid #ffffff;
+    box-shadow: 0 0 0 5px rgba(238, 153, 53, 0.15), 0 0 30px rgba(26, 106, 187, 0.1), 0 12px 40px rgba(26, 106, 187, 0.15);
+    animation: activeGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes activeGlow {
+    from {
+        box-shadow: 0 0 0 5px rgba(238, 153, 53, 0.15), 0 0 20px rgba(26, 106, 187, 0.08), 0 12px 40px rgba(26, 106, 187, 0.12);
+    }
+
+    to {
+        box-shadow: 0 0 0 8px rgba(238, 153, 53, 0.25), 0 0 40px rgba(238, 153, 53, 0.15), 0 16px 50px rgba(26, 106, 187, 0.2);
+    }
+}
+
+.island.active .island-icon {
+    background: rgba(26, 106, 187, 0.12);
+    color: #1a6abb;
+}
+
+.island.active .quest-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ee9935;
+    color: white;
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 0.3rem 0.9rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    box-shadow: 0 4px 14px rgba(238, 153, 53, 0.4);
+    white-space: nowrap;
+    z-index: 6;
+    animation: badgeBounce 2s ease-in-out infinite;
+}
+
+@keyframes badgeBounce {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* Locked Island */
+.island.locked {
+    opacity: 0.5;
+    filter: grayscale(45%);
+    cursor: default;
+}
+
+.island.locked:hover {
+    transform: none;
+}
+
+.island.locked .island-circle {
+    background: #f3e8ff;
+    border: 4px solid rgba(255, 255, 255, 0.5);
+}
+
+.island.locked .island-icon {
+    background: rgba(148, 163, 184, 0.15);
+    color: #94a3b8;
+}
+
+.island.locked .lock-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #94a3b8;
+    z-index: 6;
+    animation: lockWiggle 4s ease-in-out infinite;
+}
+
+@keyframes lockWiggle {
+
+    0%,
+    90%,
+    100% {
+        transform: rotate(0);
+    }
+
+    92% {
+        transform: rotate(-5deg);
+    }
+
+    94% {
+        transform: rotate(5deg);
+    }
+
+    96% {
+        transform: rotate(-3deg);
+    }
+
+    98% {
+        transform: rotate(3deg);
+    }
+}
+
+/* Island Info Card */
+.island-info {
+    margin-top: 1rem;
+    background: #ffffff;
+    padding: 1rem 1.3rem;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+    text-align: center;
+    width: 210px;
+    transition: box-shadow 0.3s ease;
+}
+
+.island:hover .island-info {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.island.completed .island-info {
+    border-bottom: 4px solid #bbf7d0;
+}
+
+.island.active .island-info {
+    border-bottom: 4px solid rgba(238, 153, 53, 0.35);
+    width: 230px;
+}
+
+.island.locked .island-info {
+    background: rgba(255, 255, 255, 0.65);
+}
+
+.island-info h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    color: #1e293b;
+}
+
+.island.locked .island-info h3 {
+    color: #94a3b8;
+}
+
+.island-info .island-progress-label {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
+}
+
+.island-progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #f1f5f9;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.island-progress-bar .progress-fill {
+    height: 100%;
+    border-radius: 50px;
+    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.island.completed .progress-fill {
+    background: #22c55e;
+    width: 100%;
+}
+
+.island.active .progress-fill {
+    background: linear-gradient(135deg, #1a6abb, #ee9935);
+}
+
+.island-info .island-btn {
+    margin-top: 0.7rem;
+    width: 100%;
+    background: #ee9935;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(238, 153, 53, 0.25);
+}
+
+.island-info .island-btn:hover {
+    background: #d88528;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(238, 153, 53, 0.35);
+}
+
+/* ===================================
+   Stats Row Below Map
+   =================================== */
+
+.stats-row {
+    display: flex;
+    gap: 1.2rem;
+    padding: 0 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.gami-stat {
+    flex: 1;
+    min-width: 180px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.2rem 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.gami-stat:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.gami-stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.gami-stat-icon.blue {
+    background: rgba(26, 106, 187, 0.1);
+    color: #1a6abb;
+}
+
+.gami-stat-icon.orange {
+    background: rgba(238, 153, 53, 0.1);
+    color: #ee9935;
+}
+
+.gami-stat-icon.green {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+}
+
+.gami-stat-icon.purple {
+    background: rgba(139, 92, 246, 0.1);
+    color: #8b5cf6;
+}
+
+.gami-stat-info h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0;
+    color: #1e293b;
+    line-height: 1.2;
+}
+
+.gami-stat-info p {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin: 0;
+}
+
+/* ===================================
+   Activity & Leaderboard Section
+   =================================== */
+
+.bottom-section {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.gami-card {
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+
+.gami-card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.gami-card-header {
+    padding: 1.2rem 1.5rem 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.gami-card-header i {
+    color: #ee9935;
+    font-size: 1.1rem;
+}
+
+.gami-card-body {
+    padding: 0 1.5rem 1.3rem;
+}
+
+/* Activity Item */
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #f1f5f9;
+    transition: background 0.2s;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-item:hover {
+    background: rgba(26, 106, 187, 0.02);
+    border-radius: 8px;
+    margin: 0 -0.5rem;
+    padding: 0.8rem 0.5rem;
+}
+
+.activity-dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.activity-dot.completed {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+}
+
+.activity-dot.session {
+    background: rgba(26, 106, 187, 0.1);
+    color: #1a6abb;
+}
+
+.activity-dot.reward {
+    background: rgba(238, 153, 53, 0.1);
+    color: #ee9935;
+}
+
+.activity-text {
+    flex: 1;
+}
+
+.activity-text p {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #1e293b;
+}
+
+.activity-text span {
+    font-size: 0.72rem;
+    color: #94a3b8;
+}
+
+.activity-xp {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #ee9935;
+    white-space: nowrap;
+}
+
+/* Leaderboard */
+.leader-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.leader-item:last-child {
+    border-bottom: none;
+}
+
+.leader-rank {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.leader-rank.gold {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.leader-rank.silver {
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+.leader-rank.bronze {
+    background: #fed7aa;
+    color: #c2410c;
+}
+
+.leader-rank.normal {
+    background: #f1f5f9;
+    color: #94a3b8;
+}
+
+.leader-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1a6abb, #2d8ae0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.leader-name {
+    flex: 1;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #1e293b;
+}
+
+.leader-xp {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #ee9935;
+}
+
+.leader-item.you {
+    background: rgba(238, 153, 53, 0.06);
+    border-radius: 10px;
+    padding: 0.7rem 0.6rem;
+    margin: 0 -0.6rem;
+}
+
+.leader-item.you .leader-name {
+    font-weight: 700;
+    color: #ee9935;
+}
+
+/* ===================================
+   Floating: Next Session Card
+   =================================== */
+
+.next-session-card {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    width: 280px;
+    background: #ffffff;
+    padding: 1.1rem 1.3rem;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(238, 153, 53, 0.15);
+    z-index: 20;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: floatCard 4s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.next-session-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    animation: none;
+}
+
+.next-session-card .session-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.7rem;
+}
+
+.next-session-card .session-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(26, 106, 187, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a6abb;
+    font-size: 1.2rem;
+}
+
+.next-session-card .session-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.next-session-card .session-title {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #1e293b;
+}
+
+.next-session-card .session-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.next-session-card .session-meta .meta-time {
+    color: #94a3b8;
+}
+
+.next-session-card .session-meta .meta-xp {
+    color: #ee9935;
+    font-weight: 700;
+}
+
+/* ===================================
+   Achievement Popup
+   =================================== */
+
+.achievement-popup {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    width: 310px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+    border: 2px solid #ee9935;
+    overflow: hidden;
+    z-index: 30;
+    animation: slideInRight 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(50px) scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.achievement-popup .confetti {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: confettiFall 3s ease-in-out infinite;
+}
+
+@keyframes confettiFall {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.25;
+    }
+
+    50% {
+        transform: translateY(8px) rotate(180deg);
+        opacity: 0.5;
+    }
+}
+
+.confetti-1 {
+    width: 8px;
+    height: 8px;
+    background: #ef4444;
+    top: 15px;
+    left: 80px;
+    animation-delay: 0s;
+}
+
+.confetti-2 {
+    width: 10px;
+    height: 4px;
+    background: #1a6abb;
+    top: 40px;
+    right: 40px;
+    transform: rotate(45deg);
+    border-radius: 2px;
+    animation-delay: 0.5s;
+}
+
+.confetti-3 {
+    width: 8px;
+    height: 8px;
+    background: #eab308;
+    bottom: 60px;
+    left: 50px;
+    animation-delay: 1s;
+}
+
+.confetti-4 {
+    width: 4px;
+    height: 12px;
+    background: #22c55e;
+    top: 70px;
+    left: 85px;
+    border-radius: 2px;
+    animation-delay: 1.5s;
+}
+
+.confetti-5 {
+    width: 10px;
+    height: 10px;
+    background: #ee9935;
+    bottom: 20px;
+    right: 20px;
+    animation-delay: 2s;
+}
+
+.achievement-body {
+    position: relative;
+    padding: 1.4rem 1.5rem;
+}
+
+.achievement-body .achievement-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.achievement-body .achievement-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(238, 153, 53, 0.15);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ee9935;
+    font-size: 1.5rem;
+    animation: trophyBounce 2s ease-in-out infinite;
+}
+
+@keyframes trophyBounce {
+
+    0%,
+    100% {
+        transform: rotate(0) scale(1);
+    }
+
+    25% {
+        transform: rotate(-10deg) scale(1.1);
+    }
+
+    75% {
+        transform: rotate(10deg) scale(1.05);
+    }
+}
+
+.achievement-body .close-btn {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.2s;
+}
+
+.achievement-body .close-btn:hover {
+    color: #64748b;
+    transform: rotate(90deg);
+}
+
+.achievement-body h4 {
+    font-size: 1.08rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    color: #1e293b;
+}
+
+.achievement-body p {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.achievement-body p strong {
+    color: #1e293b;
+}
+
+.claim-btn {
+    width: 100%;
+    background: #ee9935;
+    color: white;
+    border: none;
+    padding: 0.7rem;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 6px 20px rgba(238, 153, 53, 0.3);
+    transition: all 0.3s ease;
+}
+
+.claim-btn:hover {
+    background: #d88528;
+    box-shadow: 0 8px 28px rgba(238, 153, 53, 0.45);
+    transform: translateY(-2px);
+}
+
+.achievement-footer {
+    background: rgba(238, 153, 53, 0.05);
+    padding: 0.65rem 1.5rem;
+    border-top: 1px solid rgba(238, 153, 53, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.achievement-footer:hover {
+    background: rgba(238, 153, 53, 0.1);
+}
+
+.achievement-footer i {
+    color: #ee9935;
+    font-size: 0.85rem;
+}
+
+.achievement-footer span {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #ee9935;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.achievement-popup.hidden {
+    display: none;
+}
+
+/* ===================================
+   Content Page Styles (formations, etc.)
+   =================================== */
+
+.page-content {
+    flex: 1;
+    background: #f8f7f5;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+.page-header {
+    margin-bottom: 1.8rem;
+}
+
+.page-header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1e293b;
+    font-family: var(--font-display);
+    margin-bottom: 0.2rem;
+}
+
+.page-header p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+/* Formation Cards */
+.formation-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.formation-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #1a6abb, #ee9935);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.formation-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+.formation-card:hover::before {
+    opacity: 1;
+}
+
+.formation-card .fc-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.formation-card .fc-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.formation-card .fc-title h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0;
+    color: #1e293b;
+}
+
+.formation-card .fc-title p {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    margin: 0;
+}
+
+.formation-card .fc-progress {
+    margin-bottom: 0.8rem;
+}
+
+.formation-card .fc-progress-bar {
+    height: 10px;
+    background: #f1f5f9;
+    border-radius: 50px;
+    overflow: hidden;
+    margin-bottom: 0.4rem;
+}
+
+.formation-card .fc-progress-fill {
+    height: 100%;
+    border-radius: 50px;
+    transition: width 1s ease;
+}
+
+.formation-card .fc-progress-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.formation-card .fc-progress-meta .percentage {
+    font-weight: 700;
+}
+
+.formation-card .fc-actions {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+
+.fc-btn {
+    padding: 0.5rem 1.2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: none;
+}
+
+.fc-btn-primary {
+    background: #1a6abb;
+    color: white;
+}
+
+.fc-btn-primary:hover {
+    background: #145290;
+    transform: translateY(-1px);
+}
+
+.fc-btn-outline {
+    background: transparent;
+    color: #1a6abb;
+    border: 1.5px solid #1a6abb;
+}
+
+.fc-btn-outline:hover {
+    background: rgba(26, 106, 187, 0.06);
+}
+
+/* Payment / Invoice Table Styles */
+.gami-table-card {
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+}
+
+.gami-table-card .table-header {
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.gami-table-card .table-header h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+}
+
+.gami-table-card .table-header h3 i {
+    color: #ee9935;
+}
+
+.gami-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.gami-table thead th {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: left;
+    background: #fafafa;
+}
+
+.gami-table tbody td {
+    padding: 1rem 1.5rem;
+    font-size: 0.88rem;
+    color: #1e293b;
+    border-bottom: 1px solid #f8f8f8;
+    transition: background 0.2s;
+}
+
+.gami-table tbody tr:hover td {
+    background: rgba(26, 106, 187, 0.02);
+}
+
+.gami-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.badge-paid {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+.badge-pending {
+    background: rgba(238, 153, 53, 0.1);
+    color: #ee9935;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+.badge-overdue {
+    background: rgba(152, 25, 24, 0.1);
+    color: #981918;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+/* Certificate Card */
+.cert-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    text-align: center;
+    position: relative;
+}
+
+.cert-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+}
+
+.cert-card .cert-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+
+.cert-card .cert-icon.earned {
+    background: rgba(238, 153, 53, 0.15);
+    color: #ee9935;
+}
+
+.cert-card .cert-icon.locked {
+    background: #f1f5f9;
+    color: #cbd5e1;
+}
+
+.cert-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.3rem;
+}
+
+.cert-card p {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    margin-bottom: 1rem;
+}
+
+.cert-card .cert-date {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    margin-bottom: 0.8rem;
+}
+
+.cert-btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.82rem;
+    cursor: pointer;
+    border: none;
+    transition: all 0.25s;
+}
+
+.cert-btn-download {
+    background: #1a6abb;
+    color: white;
+}
+
+.cert-btn-download:hover {
+    background: #145290;
+    transform: translateY(-1px);
+}
+
+.cert-btn-locked {
+    background: #f1f5f9;
+    color: #94a3b8;
+    cursor: default;
+}
+
+/* Decorative Star */
+.deco-star {
+    position: fixed;
+    bottom: -2rem;
+    right: -2rem;
+    pointer-events: none;
+    opacity: 0.06;
+    z-index: 0;
+    font-size: 14rem;
+    color: #ee9935;
+    transform: rotate(12deg);
+}
+
+/* ===================================
+   Responsive
+   =================================== */
+
+@media (max-width: 992px) {
+    .map-container {
+        flex-direction: column;
+        gap: 3rem;
+        min-width: auto;
+        padding: 2rem;
+    }
+
+    .map-svg {
+        display: none;
+    }
+
+    .adventure-map {
+        padding: 1.5rem;
+    }
+
+    .stats-row {
+        flex-direction: column;
+    }
+
+    .bottom-section {
+        flex-direction: column;
+    }
+
+    .next-session-card {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        width: 100%;
+        margin-top: 1.5rem;
+        animation: none;
+    }
+
+    .achievement-popup {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .gamified-topbar {
+        padding: 0 1rem;
+    }
+
+    .topbar-left .mobile-menu-toggle {
+        display: block;
+    }
+
+    .xp-display {
+        display: none;
+    }
+
+    .page-content {
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .island-circle {
+        width: 140px;
+        height: 140px;
+    }
+
+    .island-icon {
+        width: 95px;
+        height: 95px;
+        font-size: 2.2rem;
+    }
+
+    .island-info {
+        width: 170px;
+    }
+
+    .island.active .island-info {
+        width: 190px;
+    }
+
+    .topbar-user-info .user-details {
+        display: none;
+    }
+
+    .topbar-title {
+        font-size: 1.2rem;
+    }
+
+    .level-badge {
+        display: none;
+    }
+}

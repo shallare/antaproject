@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factures - ANTA</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Fredoka:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/gamified.css">
+</head>
+
+<body class="gamified-page">
+
+    <!-- Sidebar -->
+    <div class="dashboard-sidebar" id="dashboardSidebar">
+        <div class="sidebar-header">
+            <a href="../../index.html" class="sidebar-brand">
+                <img src="../../images/anta-logo.png" alt="ANTA" style="height: 45px; width: auto;">
+                <span class="logo-text">ANTA</span>
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><i class="fas fa-compass"></i><span>Dashboard</span></a></li>
+                <li><a href="formations.html"><i class="fas fa-map"></i><span>Mes Formations</span></a></li>
+                <li><a href="paiement.html"><i class="fas fa-credit-card"></i><span>Paiements</span></a></li>
+                <li><a href="certificats.html"><i class="fas fa-award"></i><span>Certificats</span></a></li>
+                <li class="active"><a href="factures.html"><i class="fas fa-file-invoice"></i><span>Factures</span></a>
+                </li>
+            </ul>
+        </nav>
+        <div class="streak-widget">
+            <div class="streak-label">Série Quotidienne</div>
+            <div class="streak-value">
+                <i class="fas fa-fire-flame-curved"></i>
+                <span>12 Jours</span>
+            </div>
+        </div>
+        <div class="sidebar-footer">
+            <a href="#" onclick="logout()" class="sidebar-logout">
+                <i class="fas fa-sign-out-alt"></i><span>Déconnexion</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="dashboard-main" style="display: flex; flex-direction: column;">
+
+        <!-- Topbar -->
+        <div class="gamified-topbar">
+            <div class="topbar-left">
+                <button class="mobile-menu-toggle" onclick="toggleMobileSidebar()"><i class="fas fa-bars"></i></button>
+                <h1 class="topbar-title">Factures</h1>
+                <div class="level-badge">
+                    <i class="fas fa-star"></i>
+                    <span>Niveau 14</span>
+                </div>
+            </div>
+            <div class="topbar-right">
+                <div class="xp-display">
+                    <div class="xp-item"><i class="fas fa-coins xp-coin"></i><span>2 450</span></div>
+                    <div class="xp-divider"></div>
+                    <div class="xp-item"><i class="fas fa-gem xp-gem"></i><span>12</span></div>
+                </div>
+                <div class="topbar-user-info">
+                    <div class="user-details">
+                        <div class="user-name">Léo Aventurier</div>
+                        <div class="user-role">Compte Étudiant</div>
+                    </div>
+                    <div class="user-avatar"><i class="fas fa-user"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page Content -->
+        <div class="page-content">
+            <div class="page-header">
+                <h1><i class="fas fa-file-invoice" style="color: #ee9935; margin-right: 0.5rem;"></i>Mes Factures</h1>
+                <p>Retrouve et télécharge toutes tes factures</p>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-row" style="padding: 0; margin-bottom: 1.5rem;">
+                <div class="gami-stat">
+                    <div class="gami-stat-icon blue"><i class="fas fa-file-alt"></i></div>
+                    <div class="gami-stat-info">
+                        <h4>2</h4>
+                        <p>Factures totales</p>
+                    </div>
+                </div>
+                <div class="gami-stat">
+                    <div class="gami-stat-icon green"><i class="fas fa-check-circle"></i></div>
+                    <div class="gami-stat-info">
+                        <h4>1</h4>
+                        <p>Payées</p>
+                    </div>
+                </div>
+                <div class="gami-stat">
+                    <div class="gami-stat-icon orange"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="gami-stat-info">
+                        <h4>1</h4>
+                        <p>En attente</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Invoices Table -->
+            <div class="gami-table-card">
+                <div class="table-header">
+                    <h3><i class="fas fa-file-invoice"></i> Liste des Factures</h3>
+                    <button class="fc-btn fc-btn-outline" style="padding: 0.4rem 1rem; font-size: 0.78rem;">
+                        <i class="fas fa-download"></i> Tout télécharger
+                    </button>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="gami-table">
+                        <thead>
+                            <tr>
+                                <th>N° Facture</th>
+                                <th>Formation</th>
+                                <th>Montant</th>
+                                <th>Date d'émission</th>
+                                <th>Statut</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>FACT-2026-001</strong></td>
+                                <td>
+                                    <div style="display:flex;align-items:center;gap:0.6rem;">
+                                        <div
+                                            style="width:32px;height:32px;border-radius:8px;background:rgba(34,197,94,0.1);display:flex;align-items:center;justify-content:center;color:#22c55e;font-size:0.85rem;">
+                                            <i class="fas fa-code"></i></div>
+                                        Introduction à la Programmation
+                                    </div>
+                                </td>
+                                <td><strong>35 000 FCFA</strong></td>
+                                <td>10 Février 2026</td>
+                                <td><span class="badge-paid">Payée</span></td>
+                                <td>
+                                    <button class="fc-btn fc-btn-primary"
+                                        style="padding: 0.35rem 0.9rem; font-size: 0.78rem;"
+                                        onclick="downloadInvoice('FACT-2026-001')">
+                                        <i class="fas fa-download"></i> PDF
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>FACT-2026-002</strong></td>
+                                <td>
+                                    <div style="display:flex;align-items:center;gap:0.6rem;">
+                                        <div
+                                            style="width:32px;height:32px;border-radius:8px;background:rgba(26,106,187,0.1);display:flex;align-items:center;justify-content:center;color:#1a6abb;font-size:0.85rem;">
+                                            <i class="fas fa-robot"></i></div>
+                                        Robotique pour Débutants
+                                    </div>
+                                </td>
+                                <td><strong>15 000 FCFA</strong></td>
+                                <td>01 Février 2026</td>
+                                <td><span class="badge-pending">En attente</span></td>
+                                <td>
+                                    <button class="fc-btn fc-btn-outline"
+                                        style="padding: 0.35rem 0.9rem; font-size: 0.78rem; color: #94a3b8; border-color: #e2e8f0; cursor: default;">
+                                        <i class="fas fa-clock"></i> En attente
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Information Card -->
+            <div class="gami-card" style="margin-top: 1.5rem;">
+                <div class="gami-card-header">
+                    <i class="fas fa-info-circle"></i> Informations
+                </div>
+                <div class="gami-card-body">
+                    <div class="activity-item">
+                        <div class="activity-dot session"><i class="fas fa-info"></i></div>
+                        <div class="activity-text">
+                            <p>Les factures sont générées automatiquement après chaque paiement confirmé.</p>
+                            <span>Pour toute question, contacte l'administration ANTA.</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot reward"><i class="fas fa-shield-alt"></i></div>
+                        <div class="activity-text">
+                            <p>Tes factures sont sécurisées et disponibles pendant 3 ans.</p>
+                            <span>Format PDF avec signature électronique.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="deco-star"><i class="fas fa-star"></i></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/dashboard.js"></script>
+    <script src="../../js/gamified.js"></script>
+</body>
+
+</html>

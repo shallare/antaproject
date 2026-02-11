@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion Utilisateurs - ANTA Admin</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Fredoka:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="dashboard-sidebar" id="dashboardSidebar">
+        <div class="sidebar-header">
+            <a href="../../index.html" class="sidebar-brand">
+                <img src="../../images/anta-logo.png" alt="ANTA" style="height: 45px; width: auto;">
+                <span class="logo-text">ANTA</span>
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="users.html">
+                        <i class="fas fa-users"></i>
+                        <span>Utilisateurs</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="formations.html">
+                        <i class="fas fa-book"></i>
+                        <span>Formations</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="articles.html">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Publications</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="annonces.html">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>Annonces</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="certificats.html">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certificats & Paiements</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="#" onclick="logout()" class="sidebar-logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Déconnexion</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="dashboard-main">
+        <div class="dashboard-topbar">
+            <button class="mobile-menu-toggle" onclick="toggleMobileSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="topbar-search">
+                <input type="text" placeholder="Rechercher un utilisateur...">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="topbar-actions">
+                <div class="topbar-user">
+                    <i class="fas fa-user-shield"></i>
+                    <span id="userNameTop">Admin</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-content">
+            <div class="content-header d-flex justify-content-between align-items-center">
+                <div>
+                    <h1>Gestion des Utilisateurs</h1>
+                    <p>Gérez les étudiants et volontaires</p>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="dashboard-card mb-4">
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <select class="form-control">
+                                <option value="">Tous les types</option>
+                                <option value="student">Étudiants</option>
+                                <option value="volunteer">Volontaires</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-control">
+                                <option value="">Toutes les formations</option>
+                                <option value="programmation">Programmation</option>
+                                <option value="robotique">Robotique</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-control">
+                                <option value="">Statut</option>
+                                <option value="active">Actif</option>
+                                <option value="inactive">Inactif</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users Table -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-users"></i> Liste des Utilisateurs</h3>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Email</th>
+                                    <th>Type</th>
+                                    <th>Programme</th>
+                                    <th>Statut</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Jean Dupont</td>
+                                    <td>jean@email.com</td>
+                                    <td><span class="badge bg-primary">Étudiant</span></td>
+                                    <td>Programmation</td>
+                                    <td><span class="badge bg-success">Actif</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-primary" onclick="viewUser(1)"><i
+                                                class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-outline-warning" onclick="editUser(1)"><i
+                                                class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-outline-danger" onclick="deleteUser(1)"><i
+                                                class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Marie Koffi</td>
+                                    <td>marie@email.com</td>
+                                    <td><span class="badge bg-success">Volontaire</span></td>
+                                    <td>—</td>
+                                    <td><span class="badge bg-success">Actif</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-primary" onclick="viewUser(2)"><i
+                                                class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-outline-warning" onclick="editUser(2)"><i
+                                                class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-outline-danger" onclick="deleteUser(2)"><i
+                                                class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="../../js/main.js"></script>
+    <script src="../../js/dashboard.js"></script>
+</body>
+
+</html>

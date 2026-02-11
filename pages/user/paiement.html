@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiements - ANTA</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Fredoka:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/gamified.css">
+</head>
+
+<body class="gamified-page">
+
+    <!-- Sidebar -->
+    <div class="dashboard-sidebar" id="dashboardSidebar">
+        <div class="sidebar-header">
+            <a href="../../index.html" class="sidebar-brand">
+                <img src="../../images/anta-logo.png" alt="ANTA" style="height: 45px; width: auto;">
+                <span class="logo-text">ANTA</span>
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="dashboard.html"><i class="fas fa-compass"></i><span>Dashboard</span></a></li>
+                <li><a href="formations.html"><i class="fas fa-map"></i><span>Mes Formations</span></a></li>
+                <li class="active"><a href="paiement.html"><i class="fas fa-credit-card"></i><span>Paiements</span></a>
+                </li>
+                <li><a href="certificats.html"><i class="fas fa-award"></i><span>Certificats</span></a></li>
+                <li><a href="factures.html"><i class="fas fa-file-invoice"></i><span>Factures</span></a></li>
+            </ul>
+        </nav>
+        <div class="streak-widget">
+            <div class="streak-label">Série Quotidienne</div>
+            <div class="streak-value">
+                <i class="fas fa-fire-flame-curved"></i>
+                <span>12 Jours</span>
+            </div>
+        </div>
+        <div class="sidebar-footer">
+            <a href="#" onclick="logout()" class="sidebar-logout">
+                <i class="fas fa-sign-out-alt"></i><span>Déconnexion</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="dashboard-main" style="display: flex; flex-direction: column;">
+
+        <!-- Topbar -->
+        <div class="gamified-topbar">
+            <div class="topbar-left">
+                <button class="mobile-menu-toggle" onclick="toggleMobileSidebar()"><i class="fas fa-bars"></i></button>
+                <h1 class="topbar-title">Paiements</h1>
+                <div class="level-badge">
+                    <i class="fas fa-star"></i>
+                    <span>Niveau 14</span>
+                </div>
+            </div>
+            <div class="topbar-right">
+                <div class="xp-display">
+                    <div class="xp-item"><i class="fas fa-coins xp-coin"></i><span>2 450</span></div>
+                    <div class="xp-divider"></div>
+                    <div class="xp-item"><i class="fas fa-gem xp-gem"></i><span>12</span></div>
+                </div>
+                <div class="topbar-user-info">
+                    <div class="user-details">
+                        <div class="user-name">Léo Aventurier</div>
+                        <div class="user-role">Compte Étudiant</div>
+                    </div>
+                    <div class="user-avatar"><i class="fas fa-user"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page Content -->
+        <div class="page-content">
+            <div class="page-header">
+                <h1><i class="fas fa-credit-card" style="color: #ee9935; margin-right: 0.5rem;"></i>Paiements</h1>
+                <p>Gère tes paiements et suis ton solde</p>
+            </div>
+
+            <!-- Payment Stats -->
+            <div class="stats-row" style="padding: 0; margin-bottom: 1.5rem;">
+                <div class="gami-stat">
+                    <div class="gami-stat-icon green"><i class="fas fa-check-circle"></i></div>
+                    <div class="gami-stat-info">
+                        <h4>35 000 F</h4>
+                        <p>Total payé</p>
+                    </div>
+                </div>
+                <div class="gami-stat">
+                    <div class="gami-stat-icon orange"><i class="fas fa-hourglass-half"></i></div>
+                    <div class="gami-stat-info">
+                        <h4>15 000 F</h4>
+                        <p>En attente</p>
+                    </div>
+                </div>
+                <div class="gami-stat">
+                    <div class="gami-stat-icon blue"><i class="fas fa-wallet"></i></div>
+                    <div class="gami-stat-info">
+                        <h4>50 000 F</h4>
+                        <p>Total inscriptions</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Pay Card -->
+            <div class="gami-card" style="margin-bottom: 1.5rem;">
+                <div class="gami-card-header">
+                    <i class="fas fa-bolt"></i> Paiement Rapide
+                </div>
+                <div class="gami-card-body">
+                    <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 200px;">
+                            <p style="margin: 0 0 0.3rem; font-size: 0.85rem; color: #64748b;">Prochain paiement dû :
+                            </p>
+                            <p style="margin: 0; font-weight: 700; font-size: 1.1rem; color: #1e293b;">
+                                Robotique — <span style="color: #ee9935;">15 000 FCFA</span>
+                            </p>
+                            <p style="margin: 0; font-size: 0.75rem; color: #94a3b8;">Échéance : 28 Février 2026</p>
+                        </div>
+                        <button class="fc-btn fc-btn-primary"
+                            style="background: #ee9935; padding: 0.7rem 2rem; font-size: 0.9rem;">
+                            <i class="fas fa-credit-card"></i> Payer maintenant
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment History Table -->
+            <div class="gami-table-card">
+                <div class="table-header">
+                    <h3><i class="fas fa-history"></i> Historique des Paiements</h3>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="gami-table">
+                        <thead>
+                            <tr>
+                                <th>Référence</th>
+                                <th>Formation</th>
+                                <th>Montant</th>
+                                <th>Date</th>
+                                <th>Méthode</th>
+                                <th>Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>PAY-2026-001</strong></td>
+                                <td>
+                                    <div style="display:flex;align-items:center;gap:0.6rem;">
+                                        <div
+                                            style="width:32px;height:32px;border-radius:8px;background:rgba(34,197,94,0.1);display:flex;align-items:center;justify-content:center;color:#22c55e;font-size:0.85rem;">
+                                            <i class="fas fa-code"></i></div>
+                                        Programmation
+                                    </div>
+                                </td>
+                                <td><strong>35 000 FCFA</strong></td>
+                                <td>10 Fév 2026</td>
+                                <td><i class="fas fa-mobile-alt" style="color:#1a6abb;"></i> Orange Money</td>
+                                <td><span class="badge-paid">Payé</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>PAY-2026-002</strong></td>
+                                <td>
+                                    <div style="display:flex;align-items:center;gap:0.6rem;">
+                                        <div
+                                            style="width:32px;height:32px;border-radius:8px;background:rgba(26,106,187,0.1);display:flex;align-items:center;justify-content:center;color:#1a6abb;font-size:0.85rem;">
+                                            <i class="fas fa-robot"></i></div>
+                                        Robotique
+                                    </div>
+                                </td>
+                                <td><strong>15 000 FCFA</strong></td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td><span class="badge-pending">En attente</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="deco-star"><i class="fas fa-star"></i></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/dashboard.js"></script>
+    <script src="../../js/gamified.js"></script>
+</body>
+
+</html>

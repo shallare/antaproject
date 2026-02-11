@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTA - Académie pour le Numérique et la Technologie en Afrique</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Fredoka:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/expanding-cards.css">
+    <link rel="stylesheet" href="css/programmes.css">
+</head>
+
+<body>
+
+    <!-- Pop-up Annonce -->
+    <div class="announcement-popup" id="announcementPopup">
+        <div class="popup-content">
+            <button class="close-popup" id="closePopup">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="popup-icon">
+                <i class="fas fa-bullhorn"></i>
+            </div>
+            <h3 class="popup-title">Nouvelle Annonce !</h3>
+            <div class="popup-body" id="popupBody">
+                <p>Les inscriptions pour la session de Juin sont ouvertes ! 🎉</p>
+                <p>Rejoignez-nous pour une aventure technologique inoubliable.</p>
+            </div>
+            <button class="btn-popup-action" onclick="window.location.href='pages/auth/inscription.html'">
+                S'inscrire maintenant
+            </button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/anta-logo.png" alt="ANTA">
+                <span class="logo-text">ANTA</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/public/about.html">À Propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/public/programmes.html">Programmes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/public/galerie.html">Galerie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/public/contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-nav-login" href="pages/auth/login.html">
+                            <i class="fas fa-sign-in-alt"></i> Connexion
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="hero-title">
+                        Transforme ton
+                        <span class="highlight">Avenir</span>
+                        avec la Technologie
+                    </h1>
+                    <p class="hero-description">
+                        Rejoins l'ANTA et deviens un acteur du numérique !
+                        Apprends à coder, créer et innover dans un environnement
+                        ludique et inspirant.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="pages/auth/inscription.html" class="btn btn-primary-custom btn-lg">
+                            <i class="fas fa-rocket"></i> Commencer l'Aventure
+                        </a>
+                        <a href="pages/public/programmes.html" class="btn btn-outline-custom btn-lg">
+                            <i class="fas fa-book"></i> Découvrir nos Programmes
+                        </a>
+                    </div>
+
+                </div>
+                <div class="col-lg-6 hero-image">
+                    <div class="hero-illustration-container">
+                        <img src="images/illustration-Gabie.png" alt="Gabie - Mascotte ANTA"
+                            class="hero-character floating-animate">
+                        <!-- Decorative elements behind/around char -->
+                        <div class="floating-card card-1">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>Coding</span>
+                        </div>
+                        <div class="floating-card card-2">
+                            <i class="fas fa-robot"></i>
+                            <span>Robotique</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Hero Stats Row (Centered Bottom) -->
+            <div class="row mt-0">
+                <div class="col-12 d-flex justify-content-center">
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h3>500+</h3>
+                            <p>Élèves formés</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>15+</h3>
+                            <p>Instructeurs</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>3</h3>
+                            <p>Programmes</p>
+                        </div>
+                        <div class="bouncing-ball"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section full-screen-section" id="features">
+        <div class="container position-relative">
+
+
+
+            <div class="section-header text-center position-relative" style="z-index: 2;">
+                <h2 class="section-title">Pourquoi Choisir l'ANTA ?</h2>
+                <p class="section-subtitle">Une expérience d'apprentissage unique et ludique</p>
+            </div>
+
+            <!-- New Expanding Cards Gallery -->
+            <div class="expanding-cards-container">
+
+                <!-- Card 1: Instructeurs -->
+                <div class="expanding-card active" style="background-image: url('images/Instructeur.jpeg');">
+                    <div class="card-overlay"></div>
+                    <div class="card-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="card-label-collapsed">INSTRUCTEURS</div>
+                    <div class="card-content">
+                        <div class="card-title">Instructeurs Qualifiés</div>
+                        <div class="card-desc">
+                            Des professionnels passionnés et expérimentés pour guider chaque enfant vers l'excellence
+                            technologique.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Ludique -->
+                <div class="expanding-card" style="background-image: url('images/Apprentissage.jpeg');">
+                    <div class="card-overlay"></div>
+                    <div class="card-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="card-label-collapsed">LUDIQUE</div>
+                    <div class="card-content">
+                        <div class="card-title">Apprentissage Ludique</div>
+                        <div class="card-desc">
+                            Des méthodes pédagogiques créatives basées sur la gamification pour rendre l'apprentissage
+                            amusant et engageant.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Certification -->
+                <div class="expanding-card" style="background-image: url('images/Certification.jpeg');">
+                    <div class="card-overlay"></div>
+                    <div class="card-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="card-label-collapsed">CERTIFIÉ</div>
+                    <div class="card-content">
+                        <div class="card-title">Certification Reconnue</div>
+                        <div class="card-desc">
+                            Un certificat officiel délivré à la fin de chaque formation, validant les compétences
+                            acquises.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Communauté -->
+                <div class="expanding-card" style="background-image: url('images/Communauté.jpeg');">
+                    <div class="card-overlay"></div>
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="card-label-collapsed">COMMUNAUTÉ</div>
+                    <div class="card-content">
+                        <div class="card-title">Communauté Active</div>
+                        <div class="card-desc">
+                            Rejoignez un réseau dynamique de jeunes innovateurs et participez à des événements
+                            exclusifs.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Programmes Section -->
+    <section id="programmes" class="programmes-section position-relative">
+        <div class="container position-relative">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">Nos Programmes</h2>
+                <p class="section-subtitle">Des parcours adaptés à chaque étape</p>
+            </div>
+
+            <!-- New Horizontal Strips Layout for Programmes -->
+            <div class="programme-strips-container">
+
+                <!-- Strip 1: Scolaire (9 mois) -->
+                <a href="pages/public/programmes.html" class="programme-strip strip-scolaire">
+                    <!-- Video Background -->
+                    <video class="strip-bg-video" autoplay loop muted playsinline>
+                        <source src="images/anta-9mois.mp4" type="video/mp4">
+                    </video>
+
+                    <div class="strip-overlay"></div>
+
+                    <div class="strip-content" style="color: #fff;">
+                        <span class="badge bg-primary mb-2">CURSUS ANNUEL</span>
+                        <div class="strip-title">Programme Scolaire (9 Mois)</div>
+                        <div class="strip-desc" style="color: #eee;">
+                            Un accompagnement complet d'Octobre à Juin.
+                            Maîtrisez le code, la robotique et le design à votre rythme.
+                        </div>
+                        <div class="strip-action">
+                            <span class="btn-strip" style="background: var(--primary-orange); color: white;">
+                                <i class="fas fa-arrow-right"></i> Découvrir le Cursus
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Strip 2: Vacances -->
+                <a href="pages/public/programmes.html" class="programme-strip strip-vacances">
+                    <!-- Video Background -->
+                    <video class="strip-bg-video" autoplay loop muted playsinline>
+                        <source src="images/anta-vac.mp4" type="video/mp4">
+                    </video>
+
+                    <div class="strip-overlay"></div>
+
+                    <div class="strip-content text-end ms-auto">
+                        <span class="badge bg-warning text-dark mb-2">STAGES INTENSIFS</span>
+                        <div class="strip-title">Programme Vacances</div>
+                        <div class="strip-desc">
+                            Vivez des vacances inoubliables !
+                            Stages fun et créatifs pour apprendre en s'amusant.
+                        </div>
+                        <div class="strip-action">
+                            <span class="btn-strip">
+                                <i class="fas fa-sun"></i> Rejoindre l'Aventure
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Volontariat -->
+    <section class="cta-section full-screen-section" id="volontaire">
+        <div class="container">
+            <div class="cta-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 cta-content">
+                        <h2 class="cta-title">Devenez Volontaire !</h2>
+                        <p class="cta-description">
+                            Partagez vos compétences et aidez la prochaine génération de créateurs technologiques.
+                            Rejoignez notre équipe de volontaires passionnés.
+                        </p>
+                        <a href="pages/auth/inscription.html?type=volontaire" class="btn btn-cta">
+                            <i class="fas fa-hands-helping"></i> Devenir Volontaire
+                        </a>
+                    </div>
+                    <div class="col-lg-5 cta-image-container">
+                        <img src="images/illustration-clara-volontaire.png" alt="Clara Volontaire"
+                            class="cta-illustration floating-animate">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section full-screen-section" id="temoignages">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Ce Qu'ils Disent de Nous</h2>
+                <p class="section-subtitle">Témoignages de nos élèves et parents</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Mon fils adore les cours ! Il a créé son premier jeu vidéo et ne parle que de ça à la
+                            maison. Merci ANTA !"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Mme Adjovi</h4>
+                                <p>Parent d'élève</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "J'ai appris à programmer mon propre robot ! Les instructeurs sont super gentils et
+                            patients."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-child"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Samuel, 12 ans</h4>
+                                <p>Élève ANTA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Une expérience enrichissante ! Ma fille a développé sa confiance en elle et sa créativité."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>M. Koffi</h4>
+                                <p>Parent d'élève</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Scroll FAB -->
+    <div class="scroll-fab" onclick="scrollToNextSection()">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <h3>ANTA</h3>
+                        <p>Académie pour le Numérique et la Technologie en Afrique</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="footer-title">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="pages/public/about.html">À Propos</a></li>
+                        <li><a href="pages/public/programmes.html">Programmes</a></li>
+                        <li><a href="pages/public/galerie.html">Galerie</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-title">Liens Utiles</h4>
+                    <ul class="footer-links">
+                        <li><a href="pages/auth/inscription.html">S'inscrire</a></li>
+                        <li><a href="pages/auth/login.html">Se connecter</a></li>
+                        <li><a href="pages/public/contact.html">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+22990892436">+229 01 90 89 24 36</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:contact@funtech.pro">contact@funtech.pro</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-globe"></i>
+                            <a href="http://www.funtech.pro" target="_blank">www.funtech.pro</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ANTA - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // ===================================
+        // Features Connection Animation
+        // ===================================
+
+        function initFeaturesConnection() {
+            console.log('Initializing Features Connection...');
+            const svg = document.getElementById('features-connection');
+            const cards = document.querySelectorAll('.features-section .feature-card');
+
+            if (!svg || cards.length < 2) {
+                console.warn('SVG or cards not found for connection animation');
+                return;
+            }
+
+            // Create path element
+            let path = document.getElementById('features-path');
+            if (!path) {
+                path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.id = 'features-path';
+                // Use style for CSS variables
+                path.style.stroke = "var(--primary-orange)";
+                path.style.strokeWidth = "3px";
+                path.style.fill = "none";
+                path.style.strokeDasharray = "10, 10"; // Dashed line
+                path.style.transition = "stroke-dashoffset 0.1s linear"; // Smooth update
+                svg.appendChild(path);
+            }
+
+            function updatePath() {
+                const container = document.querySelector('.features-section .container');
+                if (!container) return;
+
+                const containerRect = container.getBoundingClientRect();
+                let d = "";
+
+                // Assuming cards are in order 0, 1, 2, 3...
+                // Connection pattern: Bottom C(i) -> Top C(i+1)
+
+                for (let i = 0; i < cards.length - 1; i++) {
+                    const rect1 = cards[i].getBoundingClientRect();
+                    const rect2 = cards[i + 1].getBoundingClientRect();
+
+                    // Relative coordinates to container
+                    const startX = rect1.left + rect1.width / 2 - containerRect.left;
+                    const startY = rect1.bottom - containerRect.top;
+
+                    const endX = rect2.left + rect2.width / 2 - containerRect.left;
+                    const endY = rect2.top - containerRect.top;
+
+                    // Midpoint for curve control
+                    const midX = (startX + endX) / 2;
+                    const midY = (startY + endY) / 2;
+
+                    if (i === 0) {
+                        d += `M ${startX} ${startY}`;
+                    }
+
+                    // Bezier Curve:
+                    // Control points needs to create a sine wave feel.
+                    // If moving horizontally (desktop):
+                    // C1 Bottom -> Down -> Up -> C2 Top.
+                    // If moving vertically (mobile):
+                    // C1 Bottom -> Down -> C2 Top.
+
+                    const isHorizontal = Math.abs(startX - endX) > Math.abs(startY - endY);
+
+                    if (isHorizontal) {
+                        // Desktop: Curve down then up
+                        // CP1: StartX, StartY + offset
+                        // CP2: EndX, EndY - offset
+                        d += ` C ${startX} ${startY + 50}, ${endX} ${endY - 50}, ${endX} ${endY}`;
+                    } else {
+                        // Mobile/Stacked: Simple curve
+                        d += ` C ${startX} ${startY + 30}, ${endX} ${endY - 30}, ${endX} ${endY}`;
+                    }
+
+                    // Connect through the card to the bottom?
+                    // For continuous line, we need to move to the bottom of the current destination card (C2)
+                    // so the next iteration starts correctly?
+                    // Actually, loop uses `cards[i]` and `cards[i+1]`.
+                    // Iteration 0: C0 -> C1.
+                    // Iteration 1: C1 -> C2.
+                    // When we finish drawing C0->C1, the path cursor is at C1 Top.
+                    // The next start (Iteration 1) will be "M C1 Bottom".
+                    // So we must include a Move command to jump through the card (or Line if we want it visible behind).
+                    // Since it's behind, Line is safer to ensure continuity if transparency exists.
+
+                    if (i < cards.length - 2) {
+                        const rect2Bottom = rect2.bottom - containerRect.top;
+                        // Jump to bottom of next card
+                        d += ` M ${endX} ${rect2Bottom}`;
+                    }
+                }
+
+                path.setAttribute("d", d);
+                console.log('Updating path...', d);
+
+                // Init Animation Length
+                const length = path.getTotalLength();
+                // Store length for scroll handler
+                path.dataset.length = length;
+                path.style.strokeDasharray = length;
+
+                // Initial offset (hidden)
+                // We'll let scroll handler set it.
+            }
+
+            function onScroll() {
+                const section = document.querySelector('.features-section');
+                if (!section) return;
+
+                const rect = section.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                const totalLength = parseFloat(path.dataset.length || 0);
+
+                if (totalLength > 0 && rect.top < windowHeight && rect.bottom > 0) {
+                    // Calculate visibility percentage
+                    // 0% when top enters bottom of screen
+                    // 100% when bottom leaves top of screen? Or specific range.
+                    // Let's animate fully as it scrolls into center.
+
+                    const start = windowHeight * 0.8; // Start when 20% visible
+                    const end = windowHeight * 0.2;   // End when almost fully scrolled up
+
+                    // Simple linear map:
+                    // Screen position of element Center?
+                    // Let's use standard intersection ratio approx.
+
+                    const visiblePart = windowHeight - rect.top;
+                    const scrollPercent = Math.min(1, Math.max(0, visiblePart / (windowHeight + rect.height)));
+
+                    // Draw proportionally
+                    // strokeDashoffset: length -> 0
+                    const drawOffset = totalLength * (1 - scrollPercent);
+                    path.style.strokeDashoffset = drawOffset;
+                }
+            }
+
+            // Update on load and resize
+            updatePath();
+            window.addEventListener('resize', updatePath);
+            setTimeout(updatePath, 1000); // Late update for layout stability
+
+            // Scroll Listener
+            window.addEventListener('scroll', onScroll);
+            onScroll(); // Check initial
+        }
+
+        // Initialize features connection on load
+        // window.addEventListener('load', initFeaturesConnection);
+
+        // ===================================
+        // Programmes Square Wave Animation
+        // ===================================
+
+        function initProgrammesAnimation() {
+            console.log('Initializing Programmes Square Wave...');
+            const svg = document.getElementById('programmes-connection');
+            const cards = document.querySelectorAll('.programmes-section .programme-card');
+
+            if (!svg || cards.length < 2) return;
+
+            // Ensure High Z-Index
+            svg.style.zIndex = "10";
+
+            let path = document.getElementById('programmes-path');
+            if (!path) {
+                path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.id = 'programmes-path';
+                path.style.stroke = "#EE9935"; // Orange
+                path.style.strokeWidth = "5px"; // Thick
+                path.style.fill = "none";
+                path.style.strokeLinecap = "square";
+                path.style.strokeLinejoin = "miter";
+                path.style.transition = "stroke-dashoffset 0.1s linear";
+                svg.appendChild(path);
+            }
+
+            function updatePath() {
+                const container = document.querySelector('.programmes-section .container');
+                if (!container) return;
+
+                const containerRect = container.getBoundingClientRect();
+                let d = "";
+
+                // Logic:
+                // Card 0: Trace Top Border (Left -> Right)
+                // Card 1: Trace Bottom Border (Left -> Right)
+                // Connection: Vertical drop in middle
+
+                const card1 = cards[0];
+                const card2 = cards[1];
+
+                const r1 = card1.getBoundingClientRect();
+                const r2 = card2.getBoundingClientRect();
+
+                // Coords relative to container
+                const r1_Left = r1.left - containerRect.left;
+                const r1_Right = r1.right - containerRect.left;
+                const r1_Top = r1.top - containerRect.top;
+
+                const r2_Left = r2.left - containerRect.left;
+                const r2_Right = r2.right - containerRect.left;
+                const r2_Bottom = r2.bottom - containerRect.top;
+
+                // Path Construction
+                // 1. Move to C1 Top-Left
+                d += `M ${r1_Left} ${r1_Top}`;
+
+                // 2. Line to C1 Top-Right
+                d += ` L ${r1_Right} ${r1_Top}`;
+
+                // 3. Vertical Drop to C2 Bottom Level
+                // But we need to move horizontally to C2 Left?
+                // Gap center?
+
+                const gapCenter = (r1_Right + r2_Left) / 2;
+
+                // Go to Gap Center at Top Level?
+                // Or Square drop at C1 Right?
+                // Let's go to Gap Center horizontally first
+                d += ` L ${gapCenter} ${r1_Top}`;
+
+                // Drop Vertically to C2 Bottom Level
+                d += ` L ${gapCenter} ${r2_Bottom}`;
+
+                // Go to C2 Left at Bottom Level? 
+                // Wait, if we go to C2 Bottom, we enter from Left.
+                // So Line to C2 Left Bottom.
+                d += ` L ${r2_Left} ${r2_Bottom}`;
+
+                // Line to C2 Right Bottom
+                d += ` L ${r2_Right} ${r2_Bottom}`;
+
+                // Optional: Arrow at end? "S'allumer"
+
+                path.setAttribute("d", d);
+
+                // Animation setup
+                const length = path.getTotalLength();
+                path.dataset.length = length;
+                path.style.strokeDasharray = length;
+                path.style.strokeDashoffset = length; // Hidden initially
+            }
+
+            function onScroll() {
+                const section = document.querySelector('.programmes-section');
+                if (!section) return;
+
+                const rect = section.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                const totalLength = parseFloat(path.dataset.length || 0);
+
+                if (totalLength > 0 && rect.top < windowHeight && rect.bottom > 0) {
+                    // Animate as we scroll
+                    // Focus on center view
+                    const visiblePart = windowHeight - rect.top;
+                    const percent = Math.min(1, Math.max(0, visiblePart / (windowHeight + rect.height)));
+
+                    // 1-percent to draw from left to right?
+                    // offset = length * (1 - percent)
+
+                    path.style.strokeDashoffset = totalLength * (1 - percent);
+                }
+            }
+
+            updatePath();
+            window.addEventListener('resize', updatePath);
+            setTimeout(updatePath, 500);
+            window.addEventListener('scroll', onScroll);
+            onScroll();
+        }
+
+        // window.addEventListener('load', initProgrammesAnimation);
+
+        // ===================================
+        // Features Square Wave Animation (Final)
+        // ===================================
+
+        function initFeaturesSquareWave() {
+            console.log('Initializing Features Square Wave...');
+            const svg = document.getElementById('features-square-wave');
+            const cards = document.querySelectorAll('.features-section .feature-card');
+
+            if (!svg || cards.length < 2) return;
+
+            svg.style.zIndex = "10";
+
+            let path = document.getElementById('features-square-path');
+            if (!path) {
+                path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.id = 'features-square-path';
+                path.style.stroke = "#EE9935"; // Orange
+                path.style.strokeWidth = "5px"; // Thick
+                path.style.fill = "none";
+                path.style.strokeLinecap = "square";
+                path.style.transition = "stroke-dashoffset 0.1s linear";
+                svg.appendChild(path);
+            }
+
+            function updatePath() {
+                const container = document.querySelector('.features-section .container');
+                if (!container) return;
+
+                const containerRect = container.getBoundingClientRect();
+                let d = "";
+
+                for (let i = 0; i < cards.length; i++) {
+                    const card = cards[i];
+                    const rect = card.getBoundingClientRect();
+
+                    const r_Left = rect.left - containerRect.left;
+                    const r_Right = rect.right - containerRect.left;
+                    const r_Top = rect.top - containerRect.top;
+                    const r_Bottom = rect.bottom - containerRect.top;
+
+                    const isEven = (i % 2 === 0); // 0, 2 -> Top
+
+                    if (isEven) {
+                        // Trace Top
+                        // If not first, connect from prev
+                        if (i > 0) {
+                            // Prev was Odd (Bottom)
+                            // Connect Prev End (Bottom Right) to Curr Start (Top Left)
+                            // Diagonal/Vertical step
+                            d += ` L ${r_Left} ${r_Top}`;
+                        } else {
+                            d += `M ${r_Left} ${r_Top}`;
+                        }
+                        // Draw Top Line
+                        d += ` L ${r_Right} ${r_Top}`;
+
+                        // Drop Down preparation for next
+                        // We are at Top Right.
+
+                    } else {
+                        // Trace Bottom
+                        // Connect from Prev (Top Right) to Curr (Bottom Left)
+                        d += ` L ${r_Left} ${r_Bottom}`;
+
+                        // Draw Bottom Line
+                        d += ` L ${r_Right} ${r_Bottom}`;
+                    }
+                }
+
+                path.setAttribute("d", d);
+
+                const length = path.getTotalLength();
+                path.dataset.length = length;
+                path.style.strokeDasharray = length;
+                path.style.strokeDashoffset = length;
+            }
+
+            function onScroll() {
+                const section = document.querySelector('.features-section');
+                if (!section) return;
+
+                const rect = section.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                const totalLength = parseFloat(path.dataset.length || 0);
+
+                if (totalLength > 0 && rect.top < windowHeight && rect.bottom > 0) {
+                    const visiblePart = windowHeight - rect.top;
+                    const percent = Math.min(1, Math.max(0, visiblePart / (windowHeight + rect.height)));
+                    path.style.strokeDashoffset = totalLength * (1 - percent);
+                }
+            }
+
+            updatePath();
+            window.addEventListener('resize', updatePath);
+            setTimeout(updatePath, 500);
+            window.addEventListener('scroll', onScroll);
+            onScroll();
+        }
+
+        // window.addEventListener('load', initFeaturesSquareWave);
+
+        function scrollToNextSection() {
+            const sections = document.querySelectorAll('section');
+            const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Check if we are at the bottom
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+
+            // Find next section
+            for (let i = 0; i < sections.length; i++) {
+                if (sections[i].offsetTop > scrollPos + 10) { // +10 buffer
+                    sections[i].scrollIntoView({ behavior: 'smooth' });
+                    return;
+                }
+            }
+
+            // Fallback to footer/bottom if no next section found
+            const footer = document.querySelector('footer');
+            if (footer) {
+                footer.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        window.addEventListener('scroll', function () {
+            const fab = document.querySelector('.scroll-fab');
+            const icon = fab.querySelector('i');
+
+            if (fab && icon) {
+                // Check if we effectively reached the bottom
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                    // Rotate arrow up
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    // Arrow down
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            }
+        });
+    </script>
+
+    <!-- Expanding Cards Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cardContainers = document.querySelectorAll('.expanding-cards-container');
+
+            cardContainers.forEach(container => {
+                const cards = container.querySelectorAll('.expanding-card');
+
+                cards.forEach(card => {
+                    card.addEventListener('mouseenter', () => {
+                        removeActiveClasses(cards);
+                        card.classList.add('active');
+                    });
+
+                    // Mobile Click Support
+                    card.addEventListener('click', () => {
+                        removeActiveClasses(cards);
+                        card.classList.add('active');
+                    });
+                });
+            });
+
+            function removeActiveClasses(cards) {
+                cards.forEach(card => {
+                    card.classList.remove('active');
+                });
+            }
+        });
+    </script>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - ANTA</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Fredoka:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/auth.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+                <img src="../../images/anta-logo.png" alt="ANTA">
+                <span class="logo-text">ANTA</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-nav-login" href="login.html">
+                            <i class="fas fa-sign-in-alt"></i> Connexion
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Registration Section -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+
+                    <!-- Type Selection -->
+                    <div class="type-selection-card mb-4">
+                        <h2 class="text-center mb-4">Rejoignez l'Aventure ANTA</h2>
+                        <p class="text-center text-muted mb-4">Choisissez votre profil pour commencer</p>
+
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="type-card" id="studentCard" onclick="selectType('student')">
+                                    <div class="type-icon">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <h3>Étudiant / Apprenant</h3>
+                                    <p>Pour les enfants et adolescents de 8 à 17 ans qui souhaitent apprendre le
+                                        numérique</p>
+                                    <ul class="type-features">
+                                        <li><i class="fas fa-check"></i> Accès aux formations</li>
+                                        <li><i class="fas fa-check"></i> Certificats officiels</li>
+                                        <li><i class="fas fa-check"></i> Suivi personnalisé</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="type-card" id="volunteerCard" onclick="selectType('volunteer')">
+                                    <div class="type-icon volunteer-icon">
+                                        <i class="fas fa-hands-helping"></i>
+                                    </div>
+                                    <h3>Volontaire / Instructeur</h3>
+                                    <p>Pour ceux qui souhaitent partager leurs connaissances et aider les jeunes à
+                                        apprendre</p>
+                                    <ul class="type-features">
+                                        <li><i class="fas fa-check"></i> Enseigner aux jeunes</li>
+                                        <li><i class="fas fa-check"></i> Impact social</li>
+                                        <li><i class="fas fa-check"></i> Développement personnel</li>
+                                    </ul>
+                                    <div class="volunteer-info">
+                                        <i class="fas fa-info-circle"></i>
+                                        <span>Les volontaires aident les étudiants à travailler sur leurs projets et les
+                                            guident dans leur apprentissage</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Registration Forms -->
+                    <div class="auth-card" id="registrationForm" style="display: none;">
+                        <div class="auth-header">
+                            <button class="btn-back" onclick="backToSelection()">
+                                <i class="fas fa-arrow-left"></i> Retour
+                            </button>
+                            <h3 id="formTitle">Inscription Étudiant</h3>
+                        </div>
+
+                        <!-- Student Form -->
+                        <form id="studentForm" style="display: none;">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Prénom *</label>
+                                    <input type="text" class="form-control" name="firstName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Nom *</label>
+                                    <input type="text" class="form-control" name="lastName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Date de naissance *</label>
+                                    <input type="date" class="form-control" name="birthDate" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Genre *</label>
+                                    <select class="form-control" name="gender" required>
+                                        <option value="">Sélectionner</option>
+                                        <option value="male">Masculin</option>
+                                        <option value="female">Féminin</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Adresse *</label>
+                                    <input type="text" class="form-control" name="address" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Email *</label>
+                                    <input type="email" class="form-control" name="email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Téléphone *</label>
+                                    <input type="tel" class="form-control" name="phone" placeholder="+229 XX XX XX XX"
+                                        required>
+                                </div>
+
+                                <div class="col-12">
+                                    <hr class="my-4">
+                                    <h5 class="mb-3">Informations du Parent/Tuteur</h5>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Nom complet du parent *</label>
+                                    <input type="text" class="form-control" name="parentName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Téléphone du parent *</label>
+                                    <input type="tel" class="form-control" name="parentPhone"
+                                        placeholder="+229 XX XX XX XX" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Email du parent *</label>
+                                    <input type="email" class="form-control" name="parentEmail" required>
+                                </div>
+
+                                <div class="col-12">
+                                    <hr class="my-4">
+                                    <h5 class="mb-3">Choix du Programme</h5>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label">Programme souhaité *</label>
+                                    <select class="form-control" name="programme" required>
+                                        <option value="">Sélectionner un programme</option>
+                                        <option value="tech-junior-scolaire">Tech Junior Scolaire (9 mois)</option>
+                                        <option value="tech-junior-vacances-juin">Tech Junior Vacances - Juin</option>
+                                        <option value="tech-junior-vacances-juillet">Tech Junior Vacances - Juillet
+                                        </option>
+                                        <option value="tech-junior-vacances-aout">Tech Junior Vacances - Août</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label">Mot de passe *</label>
+                                    <input type="password" class="form-control" name="password" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Confirmer le mot de passe *</label>
+                                    <input type="password" class="form-control" name="confirmPassword" required>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="studentTerms" required>
+                                        <label class="form-check-label" for="studentTerms">
+                                            J'accepte les <a href="#" class="text-primary">conditions d'utilisation</a>
+                                            et la <a href="#" class="text-primary">politique de confidentialité</a>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary-custom w-100">
+                                        <i class="fas fa-rocket"></i> S'inscrire
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Volunteer Form -->
+                        <form id="volunteerForm" style="display: none;">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Prénom *</label>
+                                    <input type="text" class="form-control" name="firstName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Nom *</label>
+                                    <input type="text" class="form-control" name="lastName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Date de naissance *</label>
+                                    <input type="date" class="form-control" name="birthDate" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Genre *</label>
+                                    <select class="form-control" name="gender" required>
+                                        <option value="">Sélectionner</option>
+                                        <option value="male">Masculin</option>
+                                        <option value="female">Féminin</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Adresse *</label>
+                                    <input type="text" class="form-control" name="address" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Email *</label>
+                                    <input type="email" class="form-control" name="email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Téléphone *</label>
+                                    <input type="tel" class="form-control" name="phone" placeholder="+229 XX XX XX XX"
+                                        required>
+                                </div>
+
+                                <div class="col-12">
+                                    <hr class="my-4">
+                                    <h5 class="mb-3">Compétences et Expérience</h5>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label">Niveau d'études *</label>
+                                    <select class="form-control" name="education" required>
+                                        <option value="">Sélectionner</option>
+                                        <option value="lycee">Lycée</option>
+                                        <option value="licence">Licence</option>
+                                        <option value="master">Master</option>
+                                        <option value="doctorat">Doctorat</option>
+                                        <option value="professionnel">Professionnel</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label">Domaine d'expertise *</label>
+                                    <select class="form-control" name="expertise" required>
+                                        <option value="">Sélectionner</option>
+                                        <option value="programmation">Programmation</option>
+                                        <option value="robotique">Robotique</option>
+                                        <option value="design">Design</option>
+                                        <option value="jeux-video">Développement de jeux vidéo</option>
+                                        <option value="web">Développement Web</option>
+                                        <option value="autre">Autre</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label">Expérience (années) *</label>
+                                    <input type="number" class="form-control" name="experience" min="0" required>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label">Disponibilité *</label>
+                                    <select class="form-control" name="availability" required>
+                                        <option value="">Sélectionner</option>
+                                        <option value="weekday">En semaine</option>
+                                        <option value="weekend">Week-end</option>
+                                        <option value="both">Les deux</option>
+                                        <option value="vacances">Vacances scolaires uniquement</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label">Pourquoi souhaitez-vous devenir volontaire ? *</label>
+                                    <textarea class="form-control" name="motivation" rows="4" required></textarea>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label">Mot de passe *</label>
+                                    <input type="password" class="form-control" name="password" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Confirmer le mot de passe *</label>
+                                    <input type="password" class="form-control" name="confirmPassword" required>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="volunteerTerms" required>
+                                        <label class="form-check-label" for="volunteerTerms">
+                                            J'accepte les <a href="#" class="text-primary">conditions d'utilisation</a>
+                                            et la <a href="#" class="text-primary">politique de confidentialité</a>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary-custom w-100">
+                                        <i class="fas fa-hands-helping"></i> S'inscrire comme Volontaire
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="text-center mt-4">
+                            <p>Vous avez déjà un compte ? <a href="login.html" class="text-primary fw-bold">Se
+                                    connecter</a></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="../../js/main.js"></script>
+    <script src="../../js/auth.js"></script>
+</body>
+
+</html>

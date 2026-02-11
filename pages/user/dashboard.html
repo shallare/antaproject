@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte d'Aventure - ANTA</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Fredoka:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/gamified.css">
+</head>
+
+<body class="gamified-page">
+
+    <!-- Sidebar -->
+    <div class="dashboard-sidebar" id="dashboardSidebar">
+        <div class="sidebar-header">
+            <a href="../../index.html" class="sidebar-brand">
+                <img src="../../images/anta-logo.png" alt="ANTA" style="height: 45px; width: auto;">
+                <span class="logo-text">ANTA</span>
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="active">
+                    <a href="dashboard.html">
+                        <i class="fas fa-compass"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="formations.html">
+                        <i class="fas fa-map"></i>
+                        <span>Mes Formations</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="paiement.html">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Paiements</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="certificats.html">
+                        <i class="fas fa-award"></i>
+                        <span>Certificats</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="factures.html">
+                        <i class="fas fa-file-invoice"></i>
+                        <span>Factures</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Daily Streak Widget -->
+        <div class="streak-widget">
+            <div class="streak-label">Série Quotidienne</div>
+            <div class="streak-value">
+                <i class="fas fa-fire-flame-curved"></i>
+                <span>12 Jours</span>
+            </div>
+        </div>
+
+        <div class="sidebar-footer">
+            <a href="#" onclick="logout()" class="sidebar-logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Déconnexion</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="dashboard-main" style="display: flex; flex-direction: column;">
+
+        <!-- Gamified Topbar -->
+        <div class="gamified-topbar">
+            <div class="topbar-left">
+                <button class="mobile-menu-toggle" onclick="toggleMobileSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="topbar-title">Carte d'Aventure</h1>
+                <div class="level-badge">
+                    <i class="fas fa-star"></i>
+                    <span>Niveau 14 — Explorateur</span>
+                </div>
+            </div>
+            <div class="topbar-right">
+                <div class="xp-display">
+                    <div class="xp-item">
+                        <i class="fas fa-coins xp-coin"></i>
+                        <span>2 450</span>
+                    </div>
+                    <div class="xp-divider"></div>
+                    <div class="xp-item">
+                        <i class="fas fa-gem xp-gem"></i>
+                        <span>12</span>
+                    </div>
+                </div>
+                <div class="topbar-user-info">
+                    <div class="user-details">
+                        <div class="user-name" id="userNameTop">Léo Aventurier</div>
+                        <div class="user-role">Compte Étudiant</div>
+                    </div>
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Adventure Map -->
+        <div class="adventure-map circuit-theme">
+
+            <!-- Circuit Background Overlay -->
+            <div class="circuit-overlay"></div>
+
+            <!-- Floating Particles -->
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+            <div class="particle particle-6"></div>
+            <div class="particle particle-7"></div>
+            <div class="particle particle-8"></div>
+
+            <!-- Draggable Map Wrapper -->
+            <div id="dragWrapper" class="drag-wrapper">
+                <div id="dragContainer" class="drag-container">
+
+                    <!-- Circuit Background Grid & Pattern -->
+                    <div class="circuit-grid-bg"></div>
+
+                    <!-- SVG Path connecting islands (Complex Network 2000x1200) -->
+                    <svg class="map-svg-large" viewBox="0 0 2000 1200" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#ee9935;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
+                            </linearGradient>
+                            <filter id="glowLarge">
+                                <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur" />
+                                    <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                            </filter>
+                        </defs>
+
+                        <!-- Secondary Circuit Lines (Dimmer Background Paths - Complex) -->
+                        <g class="secondary-paths" stroke="rgba(238, 153, 53, 0.15)" stroke-width="3" fill="none">
+                            <!-- AI Branch Logic -->
+                            <path d="M 700,500 L 700,350 L 800,200" />
+                            <path d="M 800,200 L 950,200 L 950,100" stroke-dasharray="5 5" />
+                            <circle cx="950" cy="100" r="20" />
+
+                            <!-- GameDev Branch Logic -->
+                            <path d="M 300,600 L 300,750 L 450,900" />
+                            <path d="M 450,900 L 600,900 L 600,1000" stroke-dasharray="5 5" />
+                            <circle cx="600" cy="1000" r="15" />
+
+                            <!-- Cyber Branch Logic -->
+                            <path d="M 1100,700 L 1300,700 L 1500,600" />
+                            <path d="M 1500,600 L 1650,550 L 1650,450" />
+                            <rect x="1620" y="420" width="60" height="30" rx="5" />
+
+                            <!-- Background Circuit Decor -->
+                            <path d="M 100,100 L 1900,100" stroke-opacity="0.1" />
+                            <path d="M 100,1100 L 1900,1100" stroke-opacity="0.1" />
+                            <path d="M 100,100 L 100,1100" stroke-opacity="0.1" />
+                            <path d="M 1900,100 L 1900,1100" stroke-opacity="0.1" />
+                        </g>
+
+                        <!-- Main Active Path (Prog -> Robo) -->
+                        <path class="circuit-path-main" d="M 100,600 L 500,600 L 500,500 L 700,500" fill="none"
+                            stroke="url(#mainGradient)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"
+                            filter="url(#glowLarge)" />
+
+                        <!-- Main Future Path (Robo -> Design) -->
+                        <path class="circuit-path-future" d="M 700,500 L 900,500 L 900,700 L 1100,700" fill="none"
+                            stroke="rgba(255,255,255,0.2)" stroke-width="6" stroke-dasharray="10 6"
+                            stroke-linecap="round" stroke-linejoin="round" />
+
+                        <!-- Future Design -> Cyber -->
+                        <path class="circuit-path-future" d="M 1100,700 L 1300,700 L 1500,600" fill="none"
+                            stroke="rgba(255,255,255,0.1)" stroke-width="4" stroke-dasharray="5 5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+
+                        <!-- Traveling Light Beam -->
+                        <circle r="8" fill="#fff" filter="url(#glowLarge)">
+                            <animateMotion dur="5s" repeatCount="indefinite"
+                                path="M 100,600 L 500,600 L 500,500 L 700,500" keyPoints="0;1" keyTimes="0;1"
+                                calcMode="linear" />
+                        </circle>
+                    </svg>
+
+                    <!-- Large Content Area (Islands) -->
+                    <div class="map-large-content">
+
+                        <!-- Island 1: Programmation (Start) -->
+                        <div class="island completed" style="left: 20px; top: 500px;"
+                            onclick="navigateIsland('programmation')">
+                            <div class="island-circle">
+                                <div class="island-icon"><i class="fas fa-code"></i></div>
+                                <div class="completion-badge"><i class="fas fa-check"></i></div>
+                            </div>
+                            <div class="island-info">
+                                <h3>Programmation</h3>
+                                <p class="island-progress-label">100% Explorée</p>
+                                <div class="island-progress-bar">
+                                    <div class="progress-fill" style="width: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Island 2: Robotique (Current) -->
+                        <div class="island active" style="left: 600px; top: 400px;"
+                            onclick="navigateIsland('robotique')">
+                            <div class="island-circle">
+                                <div class="island-icon"><i class="fas fa-robot"></i></div>
+                                <div class="quest-badge">QUÊTE EN COURS</div>
+                            </div>
+                            <div class="island-info">
+                                <h3>Robotique</h3>
+                                <p class="island-progress-label">65% Explorée</p>
+                                <div class="island-progress-bar">
+                                    <div class="progress-fill" data-width="65" style="width: 0%;"></div>
+                                </div>
+                                <button class="island-btn"
+                                    onclick="event.stopPropagation(); navigateIsland('robotique');">Continuer</button>
+                            </div>
+                        </div>
+
+                        <!-- Island 3: Design (Locked) -->
+                        <div class="island locked" style="left: 1000px; top: 600px;">
+                            <div class="island-circle">
+                                <div class="island-icon"><i class="fas fa-palette"></i></div>
+                                <div class="lock-overlay"><i class="fas fa-lock"></i></div>
+                            </div>
+                            <div class="island-info">
+                                <h3>Design</h3>
+                                <p class="island-progress-label">Niveau 15</p>
+                            </div>
+                        </div>
+
+                        <!-- Hidden Island: AI (North) -->
+                        <div class="island hidden-level" style="left: 800px; top: 200px;"
+                            onclick="showToast('✨ Zone Secrète Découverte : Intelligence Artificielle !', 'info')">
+                            <div class="island-circle small">
+                                <div class="island-icon"><i class="fas fa-brain"></i></div>
+                                <div class="lock-overlay"><i class="fas fa-eye-slash"></i></div>
+                            </div>
+                            <div class="island-info">
+                                <h3>IA & Data</h3>
+                                <p class="island-progress-label">Zone Secrète</p>
+                            </div>
+                        </div>
+
+                        <!-- Hidden Island: Cyber (East) -->
+                        <div class="island hidden-level" style="left: 1500px; top: 600px;"
+                            onclick="showToast('🛡️ Zone Secrète Découverte : Cybersécurité !', 'info')">
+                            <div class="island-circle small">
+                                <div class="island-icon"><i class="fas fa-shield-alt"></i></div>
+                            </div>
+                            <div class="island-info">
+                                <h3>Cybersécurité</h3>
+                                <p class="island-progress-label">Bientôt</p>
+                            </div>
+                        </div>
+
+                        <!-- Bonus Island: GameDev (South) -->
+                        <div class="island hidden-level" style="left: 450px; top: 900px;"
+                            onclick="showToast('🎮 Bonus Stage : Création de Jeux Vidéo !', 'success')">
+                            <div class="island-circle small">
+                                <div class="island-icon"><i class="fas fa-gamepad"></i></div>
+                            </div>
+                            <div class="island-info">
+                                <h3>Jeux Vidéo</h3>
+                                <p class="island-progress-label">Bonus</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating: Next Session Card -->
+            <div class="next-session-card">
+                <div class="session-header">
+                    <div class="session-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <div>
+                        <div class="session-label">Prochaine session</div>
+                        <div class="session-title">Robotique : Les Capteurs</div>
+                    </div>
+                </div>
+                <div class="session-meta">
+                    <span class="meta-time"><i class="fas fa-clock"></i> 45 min</span>
+                    <span class="meta-xp">+50 XP</span>
+                </div>
+            </div>
+
+            <!-- Floating: Achievement Popup -->
+            <div class="achievement-popup" id="achievementPopup">
+                <div class="confetti confetti-1"></div>
+                <div class="confetti confetti-2"></div>
+                <div class="confetti confetti-3"></div>
+                <div class="confetti confetti-4"></div>
+                <div class="confetti confetti-5"></div>
+                <div class="achievement-body">
+                    <div class="achievement-top">
+                        <div class="achievement-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <button class="close-btn" onclick="closeAchievement()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <h4>Bravo ! Nouvel Accomplissement !</h4>
+                    <p>Tu as terminé avec succès le défi de l'<strong>Île Programmation</strong> !</p>
+                    <button class="claim-btn" onclick="claimReward()">
+                        Réclamer la récompense
+                        <i class="fas fa-gift"></i>
+                    </button>
+                </div>
+                <div class="achievement-footer">
+                    <i class="fas fa-share-alt"></i>
+                    <span>Partager avec les parents</span>
+                </div>
+            </div>
+
+        </div><!-- /adventure-map -->
+
+        <!-- Stats Row -->
+        <div style="padding: 0 2rem;">
+            <div class="stats-row">
+                <div class="gami-stat">
+                    <div class="gami-stat-icon blue"><i class="fas fa-book-open"></i></div>
+                    <div class="gami-stat-info">
+                        <h4>3</h4>
+                        <p>Formations inscrites</p>
+                    </div>
+                </div>
+                <div class="gami-stat">
+                    <div class="gami-stat-icon orange"><i class="fas fa-chart-line"></i></div>
+                    <div class="gami-stat-info">
+                        <h4>65%</h4>
+                        <p>Progression globale</p>
+                    </div>
+                </div>
+                <div class="gami-stat">
+                    <div class="gami-stat-icon green"><i class="fas fa-trophy"></i></div>
+                    <div class="gami-stat-info">
+                        <h4>8</h4>
+                        <p>Badges obtenus</p>
+                    </div>
+                </div>
+                <div class="gami-stat">
+                    <div class="gami-stat-icon purple"><i class="fas fa-clock"></i></div>
+                    <div class="gami-stat-info">
+                        <h4>36h</h4>
+                        <p>Temps d'apprentissage</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity & Leaderboard -->
+        <div style="padding: 0 2rem 2rem;">
+            <div class="bottom-section">
+                <!-- Recent Activity -->
+                <div class="gami-card" style="flex: 2;">
+                    <div class="gami-card-header">
+                        <i class="fas fa-bolt"></i> Activité Récente
+                    </div>
+                    <div class="gami-card-body">
+                        <div class="activity-item">
+                            <div class="activity-dot completed"><i class="fas fa-check"></i></div>
+                            <div class="activity-text">
+                                <p>Module "Variables et Boucles" terminé</p>
+                                <span>Il y a 2 heures</span>
+                            </div>
+                            <div class="activity-xp">+75 XP</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-dot session"><i class="fas fa-play"></i></div>
+                            <div class="activity-text">
+                                <p>Session "Introduction aux Capteurs" commencée</p>
+                                <span>Il y a 5 heures</span>
+                            </div>
+                            <div class="activity-xp">+30 XP</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-dot reward"><i class="fas fa-star"></i></div>
+                            <div class="activity-text">
+                                <p>Badge "Codeur Débutant" débloqué !</p>
+                                <span>Hier</span>
+                            </div>
+                            <div class="activity-xp">+150 XP</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-dot completed"><i class="fas fa-check"></i></div>
+                            <div class="activity-text">
+                                <p>Quiz "Bases de Python" réussi — 92%</p>
+                                <span>Hier</span>
+                            </div>
+                            <div class="activity-xp">+100 XP</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-dot session"><i class="fas fa-play"></i></div>
+                            <div class="activity-text">
+                                <p>Session "Monter un robot Arduino" terminée</p>
+                                <span>Il y a 3 jours</span>
+                            </div>
+                            <div class="activity-xp">+50 XP</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leaderboard -->
+                <div class="gami-card" style="flex: 1; min-width: 260px;">
+                    <div class="gami-card-header">
+                        <i class="fas fa-ranking-star"></i> Classement
+                    </div>
+                    <div class="gami-card-body">
+                        <div class="leader-item">
+                            <div class="leader-rank gold">1</div>
+                            <div class="leader-avatar" style="background: linear-gradient(135deg, #f59e0b, #d97706);">SA
+                            </div>
+                            <div class="leader-name">Sarra A.</div>
+                            <div class="leader-xp">3 210 XP</div>
+                        </div>
+                        <div class="leader-item">
+                            <div class="leader-rank silver">2</div>
+                            <div class="leader-avatar" style="background: linear-gradient(135deg, #64748b, #475569);">MK
+                            </div>
+                            <div class="leader-name">Mohamed K.</div>
+                            <div class="leader-xp">2 890 XP</div>
+                        </div>
+                        <div class="leader-item you">
+                            <div class="leader-rank bronze">3</div>
+                            <div class="leader-avatar">LA</div>
+                            <div class="leader-name">Léo A. (Toi)</div>
+                            <div class="leader-xp">2 450 XP</div>
+                        </div>
+                        <div class="leader-item">
+                            <div class="leader-rank normal">4</div>
+                            <div class="leader-avatar" style="background: linear-gradient(135deg, #22c55e, #16a34a);">FD
+                            </div>
+                            <div class="leader-name">Fatima D.</div>
+                            <div class="leader-xp">2 120 XP</div>
+                        </div>
+                        <div class="leader-item">
+                            <div class="leader-rank normal">5</div>
+                            <div class="leader-avatar" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">OB
+                            </div>
+                            <div class="leader-name">Omar B.</div>
+                            <div class="leader-xp">1 950 XP</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /dashboard-main -->
+
+    <!-- Decorative Star -->
+    <div class="deco-star">
+        <i class="fas fa-star"></i>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/dashboard.js"></script>
+    <script src="../../js/gamified.js"></script>
+</body>
+
+</html>
