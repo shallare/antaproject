@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Configuration Admin - ANTA</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #EE9935;
+        }
+
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+
+        .info {
+            margin-top: 20px;
+            color: #555;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #EE9935;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        a:hover {
+            background: #d7821e;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Configuration Admin</h1>
+        <div id="message">Initialisation...</div>
+
+        <script>
+            try {
+                // Get existing users or empty array
+                let users = JSON.parse(localStorage.getItem('users')) || [];
+
+                // Check if admin already exists
+                const existingAdmin = users.find(u => u.email === 'admin@anta.bj');
+
+                if (existingAdmin) {
+                    document.getElementById('message').innerHTML = '<p class="success">Un compte Admin existe déjà.</p>' +
+                        '<div class="info">Email: <strong>admin@anta.bj</strong><br>Mot de passe: <strong>admin</strong></div>' +
+                        '<a href="pages/auth/login.html">Se connecter</a>';
+                } else {
+                    // Create new admin user
+                    const adminUser = {
+                        id: 'ADMIN01',
+                        type: 'admin',
+                        firstName: 'Admin',
+                        lastName: 'Principal',
+                        email: 'admin@anta.bj',
+                        password: 'admin',
+                        status: 'active',
+                        role: 'super_admin',
+                        registrationDate: new Date().toISOString()
+                    };
+
+                    users.push(adminUser);
+                    localStorage.setItem('users', JSON.stringify(users));
+
+                    document.getElementById('message').innerHTML = '<p class="success">Compte Admin créé avec succès !</p>' +
+                        '<div class="info">Email: <strong>admin@anta.bj</strong><br>Mot de passe: <strong>admin</strong></div>' +
+                        '<a href="pages/auth/login.html">Se connecter</a>';
+                }
+            } catch (e) {
+                document.getElementById('message').innerHTML = '<p style="color:red">Erreur lors de la configuration : ' + e.message + '</p>';
+                console.error(e);
+            }
+        </script>
+    </div>
+</body>
+
+</html>
