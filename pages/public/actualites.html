@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualités - ANTA</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts (Poppins Only) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/gallery.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+                <img src="../../images/anta-logo.png" alt="ANTA">
+                <span class="logo-text">ANTA</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">À Propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="programmes.html">Programmes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="activites.html">Activités</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galerie.html">Galerie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-nav-login" href="../auth/login.html">
+                            <i class="fas fa-sign-in-alt"></i> Connexion
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center position-relative overflow-hidden bg-pastel-red"
+        style="min-height: 40vh; padding: 100px 0;">
+        <i class="fas fa-newspaper float-icon float-icon-1"></i>
+        <i class="fas fa-bullhorn float-icon float-icon-2"></i>
+        <i class="fas fa-star float-icon float-icon-3"></i>
+
+        <div class="container position-relative z-2 h-100 d-flex align-items-center justify-content-center text-center">
+            <div>
+                <span
+                    class="badge bg-white text-primary rounded-pill fw-bold px-3 py-2 shadow-sm mb-3">ACTUALITÉS</span>
+                <h1 class="display-4 fw-bold text-dark">Découvrez nos activités et réalisations</h1>
+                <p class="lead text-muted fw-medium">Restez informés sur la vie à l'académie ANTA</p>
+            </div>
+        </div>
+
+        <div class="wave-divider wave-bottom wave-white">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <!-- Articles Grid -->
+                <div class="col-lg-8">
+                    <div class="row g-4">
+                        <!-- Article 1 -->
+                        <div class="col-md-6">
+                            <article class="card-playful card-playful-blue h-100 p-0 text-start">
+                                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998" class="w-100"
+                                    alt="Hackathon"
+                                    style="height: 200px; object-fit: cover; border-radius: 30px 30px 0 0;">
+                                <div class="p-4 bg-white" style="border-radius: 0 0 30px 30px;">
+                                    <div class="d-flex justify-content-between mb-3 text-muted small fw-bold">
+                                        <span class="text-primary"><i class="fas fa-calendar me-1"></i> 10 Fév
+                                            2026</span>
+                                        <span class="badge bg-pastel-blue text-primary rounded-pill"><i
+                                                class="fas fa-tag me-1"></i> Événement</span>
+                                    </div>
+                                    <h3 class="h5 fw-bold mb-3 text-dark">Succès du Hackathon Kids 2026</h3>
+                                    <p class="text-muted">Nos jeunes talents ont développé des solutions innovantes pour
+                                        l'environnement lors de notre hackathon annuel.</p>
+                                    <a href="#" class="btn btn-outline-primary btn-sm rounded-pill fw-bold mt-2">Lire la
+                                        suite <i class="fas fa-arrow-right small ms-1"></i></a>
+                                </div>
+                            </article>
+                        </div>
+                        <!-- Article 2 -->
+                        <div class="col-md-6">
+                            <article class="card-playful card-playful-orange h-100 p-0 text-start">
+                                <img src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0" class="w-100"
+                                    alt="Robotique"
+                                    style="height: 200px; object-fit: cover; border-radius: 30px 30px 0 0;">
+                                <div class="p-4 bg-white" style="border-radius: 0 0 30px 30px;">
+                                    <div class="d-flex justify-content-between mb-3 text-muted small fw-bold">
+                                        <span class="text-warning"><i class="fas fa-calendar me-1"></i> 05 Jan
+                                            2026</span>
+                                        <span class="badge bg-pastel-orange text-warning rounded-pill"><i
+                                                class="fas fa-tag me-1"></i> Atelier</span>
+                                    </div>
+                                    <h3 class="h5 fw-bold mb-3 text-dark">Nouveaux Kits de Robotique à ANTA</h3>
+                                    <p class="text-muted">L'académie s'équipe des derniers kits Arduino et Raspberry Pi
+                                        pour nos Tech Juniors avancés.</p>
+                                    <a href="#" class="btn btn-outline-warning btn-sm rounded-pill fw-bold mt-2">Lire la
+                                        suite <i class="fas fa-arrow-right small ms-1"></i></a>
+                                </div>
+                            </article>
+                        </div>
+                        <!-- Article 3 -->
+                        <div class="col-md-6">
+                            <article class="card-playful card-playful-green h-100 p-0 text-start">
+                                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b955" class="w-100"
+                                    alt="Rentrée"
+                                    style="height: 200px; object-fit: cover; border-radius: 30px 30px 0 0;">
+                                <div class="p-4 bg-white" style="border-radius: 0 0 30px 30px;">
+                                    <div class="d-flex justify-content-between mb-3 text-muted small fw-bold">
+                                        <span class="text-success"><i class="fas fa-calendar me-1"></i> 15 Sept
+                                            2025</span>
+                                        <span class="badge bg-pastel-green text-success rounded-pill"><i
+                                                class="fas fa-tag me-1"></i> Vie Scolaire</span>
+                                    </div>
+                                    <h3 class="h5 fw-bold mb-3 text-dark">Rentrée Académique 2025-2026</h3>
+                                    <p class="text-muted">Plus de 200 nouveaux élèves ont rejoint nos programmes Tech
+                                        Junior cette année !</p>
+                                    <a href="#" class="btn btn-outline-success btn-sm rounded-pill fw-bold mt-2">Lire la
+                                        suite <i class="fas fa-arrow-right small ms-1"></i></a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav class="mt-5">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled"><a class="page-link" href="#"><i
+                                        class="fas fa-chevron-left"></i></a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <div class="ps-lg-4 mt-5 mt-lg-0">
+                        <!-- Search -->
+                        <div class="mb-5 bg-white p-4 rounded-5 shadow-sm border border-light">
+                            <h4 class="fw-bold text-dark mb-3">Recherche</h4>
+                            <form class="input-group">
+                                <input type="text" class="form-control form-control-lg border-end-0 bg-light"
+                                    placeholder="Rechercher..."
+                                    style="border-radius: 30px 0 0 30px; border-color: transparent !important;">
+                                <button class="btn btn-light bg-light border-start-0" type="button"
+                                    style="border-radius: 0 30px 30px 0; border-color: transparent !important;"><i
+                                        class="fas fa-search text-primary"></i></button>
+                            </form>
+                        </div>
+
+                        <!-- Recent Posts -->
+                        <div class="mb-5 bg-white p-4 rounded-5 shadow-sm border border-light">
+                            <h4 class="fw-bold text-dark mb-4">Articles Récents</h4>
+                            <div class="d-flex mb-4 align-items-center">
+                                <div class="blob-img-container flex-shrink-0 p-0 me-3"
+                                    style="width: 80px; height: 80px;">
+                                    <div class="blob-bg" style="background: var(--gradient-primary);"></div>
+                                    <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40"
+                                        class="blob-img" style="border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;">
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-1"><a href="#" class="text-dark text-decoration-none">Remise
+                                            de diplômes 2025</a></h6>
+                                    <small class="text-primary fw-bold">12 Déc 2025</small>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="blob-img-container flex-shrink-0 p-0 me-3"
+                                    style="width: 80px; height: 80px;">
+                                    <div class="blob-bg"
+                                        style="background: var(--gradient-secondary); animation-direction: reverse;">
+                                    </div>
+                                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7"
+                                        class="blob-img"
+                                        style="border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; animation-delay: -2s;">
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-1"><a href="#" class="text-dark text-decoration-none">Visite
+                                            au FabLab</a></h6>
+                                    <small class="text-primary fw-bold">20 Nov 2025</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Categories -->
+                        <div class="mb-5 bg-white p-4 rounded-5 shadow-sm border border-light">
+                            <h4 class="fw-bold text-dark mb-4">Catégories</h4>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-3"><a href="#"
+                                        class="text-decoration-none text-muted d-flex justify-content-between align-items-center"><span
+                                            class="fw-medium"><i class="fas fa-angle-right text-primary me-2"></i>
+                                            Événements</span> <span
+                                            class="badge bg-pastel-blue text-primary rounded-pill">5</span></a></li>
+                                <li class="mb-3"><a href="#"
+                                        class="text-decoration-none text-muted d-flex justify-content-between align-items-center"><span
+                                            class="fw-medium"><i class="fas fa-angle-right text-success me-2"></i>
+                                            Pédagogie</span> <span
+                                            class="badge bg-pastel-green text-success rounded-pill">3</span></a></li>
+                                <li class="mb-3"><a href="#"
+                                        class="text-decoration-none text-muted d-flex justify-content-between align-items-center"><span
+                                            class="fw-medium"><i class="fas fa-angle-right text-warning me-2"></i> Vie
+                                            Scolaire</span> <span
+                                            class="badge bg-pastel-orange text-warning rounded-pill">8</span></a></li>
+                                <li class="mb-0"><a href="#"
+                                        class="text-decoration-none text-muted d-flex justify-content-between align-items-center"><span
+                                            class="fw-medium"><i class="fas fa-angle-right text-danger me-2"></i>
+                                            Technologie</span> <span
+                                            class="badge bg-pastel-red text-danger rounded-pill">4</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <h3>ANTA</h3>
+                        <p>Académie pour le Numérique et la Technologie en Afrique</p>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h4 class="footer-title">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="../../index.html">Accueil</a></li>
+                        <li><a href="about.html">À Propos</a></li>
+                        <li><a href="programmes.html">Programmes</a></li>
+                        <li><a href="galerie.html">Galerie</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h4 class="footer-title">Nos Activités</h4>
+                    <ul class="footer-links">
+                        <li><a href="programmes.html">Tech Junior Vacances</a></li>
+                        <li><a href="programmes.html">Tech Junior Extrascolaire</a></li>
+                        <li><a href="programmes.html">Tech Junior Scolaire</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-phone"></i> +229 90 89 24 36</li>
+                        <li><i class="fas fa-envelope"></i> contact@funtech.pro</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Cotonou, Bénin</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ANTA. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/main.js"></script>
+</body>
+
+</html>

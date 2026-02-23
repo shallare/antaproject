@@ -2,202 +2,365 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion Utilisateurs - ANTA Admin</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Utilisateurs - ANTA Admin</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1A73E8",
+                        "background-light": "#F8FAFC",
+                    },
+                    fontFamily: {
+                        display: ["Plus Jakarta Sans", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        .sidebar-item-active {
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid white;
+        }
 
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Fredoka:wght@400;600;700&display=swap"
-        rel="stylesheet">
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/dashboard.css">
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 
-<body>
+<body class="bg-[#F8FAFC] h-screen w-screen overflow-hidden flex flex-row text-slate-800 selection:bg-primary/20">
 
     <!-- Sidebar -->
-    <div class="dashboard-sidebar" id="dashboardSidebar">
-        <div class="sidebar-header">
-            <a href="../../index.html" class="sidebar-brand">
-                <img src="../../images/anta-logo.png" alt="ANTA" style="height: 45px; width: auto;">
-                <span class="logo-text">ANTA</span>
-            </a>
+    <aside
+        class="w-[280px] bg-white flex flex-col pt-8 pb-6 px-5 shrink-0 h-full border-r border-slate-100 shadow-[4px_0_24px_rgba(0,0,0,0.02)] relative z-20">
+        <div class="flex items-center gap-4 mb-10 pl-2">
+            <div class="bg-blue-50 p-2.5 rounded-2xl shadow-sm border border-blue-100">
+                <img src="../../images/anta-logo.png" alt="ANTA" class="h-8 w-auto">
+            </div>
+            <div>
+                <h1 class="text-xl font-extrabold text-slate-800 tracking-tight leading-none mb-1">ANTA</h1>
+                <p class="text-[10px] uppercase font-extrabold text-primary tracking-widest">Workspace</p>
+            </div>
         </div>
-        <nav class="sidebar-nav">
-            <ul>
-                <li>
-                    <a href="dashboard.html">
-                        <i class="fas fa-tachometer-alt"></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li class="active">
-                    <a href="users.html">
-                        <i class="fas fa-users"></i>
-                        <span>Utilisateurs</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="formations.html">
-                        <i class="fas fa-book"></i>
-                        <span>Formations</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="articles.html">
-                        <i class="fas fa-newspaper"></i>
-                        <span>Publications</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="annonces.html">
-                        <i class="fas fa-bullhorn"></i>
-                        <span>Annonces</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="certificats.html">
-                        <i class="fas fa-certificate"></i>
-                        <span>Certificats & Paiements</span>
-                    </a>
-                </li>
-            </ul>
+
+        <button id="global-btn-new"
+            class="bg-primary text-white font-bold py-3.5 px-6 rounded-2xl flex items-center justify-center gap-3 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:-translate-y-0.5 transition-all mb-8 group">
+            <span class="material-icons-round group-hover:rotate-90 transition-transform">add_circle</span>
+            Nouveau
+        </button>
+
+        <nav class="flex-grow space-y-1.5 overflow-y-auto pr-2 custom-scrollbar">
+            <a class="flex items-center gap-4 px-4 py-3.5 rounded-2xl text-slate-500 font-bold hover:bg-slate-50 hover:text-slate-800 transition-colors"
+                href="dashboard.html">
+                <span class="material-icons-round opacity-70">dashboard</span>
+                Vue d'ensemble
+            </a>
+            <a class="flex items-center gap-4 px-4 py-3.5 rounded-2xl text-slate-500 font-bold hover:bg-slate-50 hover:text-slate-800 transition-colors"
+                href="learners.html">
+                <span class="material-icons-round opacity-70">school</span>
+                Apprenants
+            </a>
+            <a class="flex items-center gap-4 px-4 py-3.5 rounded-2xl text-slate-500 font-bold hover:bg-slate-50 hover:text-slate-800 transition-colors"
+                href="groups.html">
+                <span class="material-icons-round opacity-70">category</span>
+                Groupes
+            </a>
+            <a class="flex items-center gap-4 px-4 py-3.5 rounded-2xl bg-blue-50 text-primary font-bold shadow-sm border border-blue-100/50"
+                href="users.html">
+                <span class="material-icons-round text-primary">group</span>
+                Utilisateurs
+            </a>
+            <a class="flex items-center gap-4 px-4 py-3.5 rounded-2xl text-slate-500 font-bold hover:bg-slate-50 hover:text-slate-800 transition-colors"
+                href="formations.html">
+                <span class="material-icons-round opacity-70">menu_book</span>
+                Formations
+            </a>
+            <a class="flex items-center gap-4 px-4 py-3.5 rounded-2xl text-slate-500 font-bold hover:bg-slate-50 hover:text-slate-800 transition-colors"
+                href="volunteers.html">
+                <span class="material-icons-round opacity-70">volunteer_activism</span>
+                Volontaires
+            </a>
+            <a class="flex items-center gap-4 px-4 py-3.5 rounded-2xl text-slate-500 font-bold hover:bg-slate-50 hover:text-slate-800 transition-colors"
+                href="annonces.html">
+                <span class="material-icons-round opacity-70">campaign</span>
+                Annonces
+            </a>
+            <a class="flex items-center gap-4 px-4 py-3.5 rounded-2xl text-slate-500 font-bold hover:bg-slate-50 hover:text-slate-800 transition-colors"
+                href="invoices.html">
+                <span class="material-icons-round opacity-70">receipt_long</span>
+                Factures
+            </a>
+            <a class="flex items-center gap-4 px-4 py-3.5 rounded-2xl text-slate-500 font-bold hover:bg-slate-50 hover:text-slate-800 transition-colors"
+                href="articles.html">
+                <span class="material-icons-round opacity-70">article</span>
+                Articles
+            </a>
         </nav>
-        <div class="sidebar-footer">
-            <a href="#" onclick="logout()" class="sidebar-logout">
-                <i class="fas fa-sign-out-alt"></i>
-                <span>Déconnexion</span>
+
+        <div class="mt-4 pt-6 border-t border-slate-100">
+            <a href="../../index.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold text-slate-500 hover:text-slate-800 hover:bg-slate-50 transition-colors">
+                <span class="material-icons-round text-lg">public</span>
+                Site Public ANTA
+            </a>
+            <a href="#"
+                class="flex items-center gap-3 px-4 py-3 mt-1 rounded-xl text-sm font-bold text-red-500 hover:bg-red-50 transition-colors">
+                <span class="material-icons-round text-lg">logout</span>
+                Déconnexion
             </a>
         </div>
-    </div>
+    </aside>
 
     <!-- Main Content -->
-    <div class="dashboard-main">
-        <div class="dashboard-topbar">
-            <button class="mobile-menu-toggle" onclick="toggleMobileSidebar()">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="topbar-search">
-                <input type="text" placeholder="Rechercher un utilisateur...">
-                <i class="fas fa-search"></i>
+    <main class="flex-grow flex flex-col h-full overflow-hidden bg-[#F8FAFC] relative z-10 w-full">
+        <!-- Header -->
+        <!-- Header -->
+        <header
+            class="h-[88px] flex items-center justify-between px-10 bg-white/80 backdrop-blur-md border-b border-slate-100 sticky top-0 z-30">
+            <div class="relative w-[400px]">
+                <span class="material-icons-round absolute left-5 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+                <input
+                    class="w-full pl-14 pr-6 py-3 bg-slate-50 border border-slate-100 rounded-full focus:ring-4 focus:ring-primary/10 focus:border-primary text-slate-700 transition-all font-medium placeholder-slate-400"
+                    placeholder="Rechercher partout..." type="text" />
             </div>
-            <div class="topbar-actions">
-                <div class="topbar-user">
-                    <i class="fas fa-user-shield"></i>
-                    <span id="userNameTop">Admin</span>
+            <div class="flex items-center gap-6">
+                <button
+                    class="relative p-2.5 text-slate-400 hover:text-primary hover:bg-blue-50 rounded-full transition-colors group">
+                    <span class="material-icons-round group-hover:animate-bounce">notifications</span>
+                    <span
+                        class="absolute top-2 right-2 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
+                </button>
+                <button
+                    class="p-2.5 text-slate-400 hover:text-primary hover:bg-blue-50 rounded-full transition-colors group">
+                    <span class="material-icons-round group-hover:rotate-45 transition-transform">settings</span>
+                </button>
+                <div class="w-px h-8 bg-slate-200 mx-2"></div>
+                <div class="flex items-center gap-4 cursor-pointer group">
+                    <div class="text-right">
+                        <p class="text-sm font-extrabold text-slate-800 group-hover:text-primary transition-colors">
+                            AdminPrincipal</p>
+                        <p class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">Directeur</p>
+                    </div>
+                    <div
+                        class="w-11 h-11 rounded-full bg-gradient-to-tr from-primary to-blue-400 flex items-center justify-center text-white font-bold shadow-md border-2 border-white group-hover:shadow-lg transition-all">
+                        A
+                    </div>
                 </div>
             </div>
-        </div>
+        </header>
 
-        <div class="dashboard-content">
-            <div class="content-header d-flex justify-content-between align-items-center">
+        <div class="flex-grow overflow-y-auto p-8 custom-scrollbar">
+            <div class="flex justify-between items-end mb-8">
                 <div>
-                    <h1>Gestion des Utilisateurs</h1>
-                    <p>Gérez les étudiants et volontaires</p>
+                    <h2 class="text-3xl font-extrabold text-slate-900 flex items-center gap-3">
+                        Gestion des Utilisateurs
+                        <span class="material-icons-round text-primary text-3xl">group</span>
+                    </h2>
+                    <p class="text-slate-500 mt-1">Gérez les étudiants et volontaires.</p>
                 </div>
+                <button id="btn-new-user"
+                    class="bg-primary text-white font-bold py-2.5 px-5 rounded-xl shadow-md hover:bg-blue-600 transition-all flex items-center gap-2">
+                    <span class="material-icons-round">person_add</span>
+                    Nouvel Utilisateur
+                </button>
             </div>
 
             <!-- Filters -->
-            <div class="dashboard-card mb-4">
-                <div class="card-body">
-                    <div class="row g-3">
-                        <div class="col-md-4">
-                            <select class="form-control">
-                                <option value="">Tous les types</option>
-                                <option value="student">Étudiants</option>
-                                <option value="volunteer">Volontaires</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <select class="form-control">
-                                <option value="">Toutes les formations</option>
-                                <option value="programmation">Programmation</option>
-                                <option value="robotique">Robotique</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <select class="form-control">
-                                <option value="">Statut</option>
-                                <option value="active">Actif</option>
-                                <option value="inactive">Inactif</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 mb-6 flex gap-4">
+                <select
+                    class="form-select border-slate-200 rounded-lg text-sm text-slate-600 focus:ring-primary focus:border-primary">
+                    <option value="">Tous les types</option>
+                    <option value="student">Étudiants</option>
+                    <option value="volunteer">Volontaires</option>
+                </select>
+                <select
+                    class="form-select border-slate-200 rounded-lg text-sm text-slate-600 focus:ring-primary focus:border-primary">
+                    <option value="">Toutes les formations</option>
+                    <option value="programmation">Programmation</option>
+                    <option value="robotique">Robotique</option>
+                </select>
+                <select
+                    class="form-select border-slate-200 rounded-lg text-sm text-slate-600 focus:ring-primary focus:border-primary">
+                    <option value="">Statut</option>
+                    <option value="active">Actif</option>
+                    <option value="inactive">Inactif</option>
+                </select>
             </div>
 
             <!-- Users Table -->
-            <div class="dashboard-card">
-                <div class="card-header">
-                    <h3><i class="fas fa-users"></i> Liste des Utilisateurs</h3>
+            <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
+                <div class="px-8 py-4 border-b border-slate-100 bg-slate-50/50">
+                    <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest">Liste des Utilisateurs</h4>
                 </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Nom</th>
-                                    <th>Email</th>
-                                    <th>Type</th>
-                                    <th>Programme</th>
-                                    <th>Statut</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Jean Dupont</td>
-                                    <td>jean@email.com</td>
-                                    <td><span class="badge bg-primary">Étudiant</span></td>
-                                    <td>Programmation</td>
-                                    <td><span class="badge bg-success">Actif</span></td>
-                                    <td>
-                                        <button class="btn btn-sm btn-outline-primary" onclick="viewUser(1)"><i
-                                                class="fas fa-eye"></i></button>
-                                        <button class="btn btn-sm btn-outline-warning" onclick="editUser(1)"><i
-                                                class="fas fa-edit"></i></button>
-                                        <button class="btn btn-sm btn-outline-danger" onclick="deleteUser(1)"><i
-                                                class="fas fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Marie Koffi</td>
-                                    <td>marie@email.com</td>
-                                    <td><span class="badge bg-success">Volontaire</span></td>
-                                    <td>—</td>
-                                    <td><span class="badge bg-success">Actif</span></td>
-                                    <td>
-                                        <button class="btn btn-sm btn-outline-primary" onclick="viewUser(2)"><i
-                                                class="fas fa-eye"></i></button>
-                                        <button class="btn btn-sm btn-outline-warning" onclick="editUser(2)"><i
-                                                class="fas fa-edit"></i></button>
-                                        <button class="btn btn-sm btn-outline-danger" onclick="deleteUser(2)"><i
-                                                class="fas fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="text-slate-400 text-[11px] uppercase tracking-wider border-b border-slate-100">
+                            <th class="px-8 py-5 font-bold">Nom</th>
+                            <th class="px-6 py-5 font-bold">Email</th>
+                            <th class="px-6 py-5 font-bold">Type</th>
+                            <th class="px-6 py-5 font-bold">Programme</th>
+                            <th class="px-6 py-5 font-bold">Statut</th>
+                            <th class="px-6 py-5 font-bold text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr class="hover:bg-slate-50 transition-colors group">
+                            <td class="px-8 py-5 font-bold text-slate-900">Jean Dupont</td>
+                            <td class="px-6 py-5 text-sm text-slate-500">jean@email.com</td>
+                            <td class="px-6 py-5">
+                                <span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-700">
+                                    Étudiant
+                                </span>
+                            </td>
+                            <td class="px-6 py-5 text-sm text-slate-600">Programmation</td>
+                            <td class="px-6 py-5">
+                                <span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-700">
+                                    Actif
+                                </span>
+                            </td>
+                            <td class="px-6 py-5 text-right">
+                                <button class="p-2 text-slate-400 hover:text-primary transition-colors">
+                                    <span class="material-icons-round text-lg">edit</span>
+                                </button>
+                                <button class="p-2 text-slate-400 hover:text-red-500 transition-colors">
+                                    <span class="material-icons-round text-lg">delete</span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors group">
+                            <td class="px-8 py-5 font-bold text-slate-900">Marie Koffi</td>
+                            <td class="px-6 py-5 text-sm text-slate-500">marie@email.com</td>
+                            <td class="px-6 py-5">
+                                <span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-700">
+                                    Volontaire
+                                </span>
+                            </td>
+                            <td class="px-6 py-5 text-sm text-slate-400">—</td>
+                            <td class="px-6 py-5">
+                                <span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-700">
+                                    Actif
+                                </span>
+                            </td>
+                            <td class="px-6 py-5 text-right">
+                                <button class="p-2 text-slate-400 hover:text-primary transition-colors">
+                                    <span class="material-icons-round text-lg">edit</span>
+                                </button>
+                                <button class="p-2 text-slate-400 hover:text-red-500 transition-colors">
+                                    <span class="material-icons-round text-lg">delete</span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Nouvel Utilisateur -->
+    <div id="modal-new-user" class="fixed inset-0 z-[110] hidden items-center justify-center p-4">
+        <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm modal-backdrop cursor-pointer"></div>
+        <div
+            class="relative bg-white rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] w-full max-w-lg overflow-hidden transform transition-all scale-95 opacity-0 duration-300 ease-out modal-content-local">
+            <div class="px-8 py-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-green-100 text-green-600 flex items-center justify-center shadow-sm">
+                        <span class="material-icons-round">person_add</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-extrabold text-slate-800">Nouvel Utilisateur</h3>
+                        <p class="text-xs text-slate-500 font-medium">Ajouter un admin, formateur ou parent</p>
                     </div>
                 </div>
+                <button
+                    class="text-slate-400 hover:text-red-500 transition-colors modal-close-btn p-1.5 rounded-full hover:bg-red-50 outline-none">
+                    <span class="material-icons-round">close</span>
+                </button>
             </div>
+
+            <form class="p-8 space-y-6">
+                <!-- User Details -->
+                <div class="space-y-5">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold text-slate-700 ml-1">Prénom</label>
+                            <input type="text"
+                                class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-primary focus:border-primary px-4 py-3 placeholder-slate-400"
+                                required>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold text-slate-700 ml-1">Nom</label>
+                            <input type="text"
+                                class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-primary focus:border-primary px-4 py-3 placeholder-slate-400"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-slate-700 ml-1">Adresse Email</label>
+                        <input type="email"
+                            class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-primary focus:border-primary px-4 py-3 placeholder-slate-400"
+                            required>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-slate-700 ml-1">Mot de passe temporaire</label>
+                        <input type="password"
+                            class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-primary focus:border-primary px-4 py-3 placeholder-slate-400"
+                            required>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-slate-700 ml-1">Rôle / Type de compte</label>
+                        <select
+                            class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-primary focus:border-primary px-4 py-3 text-slate-600"
+                            required>
+                            <option value="admin">Administrateur</option>
+                            <option value="trainer">Formateur</option>
+                            <option value="parent">Parent / Tuteur</option>
+                            <option value="volunteer" selected>Volontaire</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex justify-end gap-3 border-t border-slate-100 mt-6">
+                    <button type="button"
+                        class="px-6 py-2.5 rounded-xl font-bold text-slate-500 hover:bg-slate-100 hover:text-slate-800 transition-colors modal-close-btn">Annuler</button>
+                    <button type="submit"
+                        class="px-6 py-2.5 rounded-xl font-bold text-white bg-primary hover:bg-blue-600 shadow-lg shadow-blue-500/30 transition-all flex items-center gap-2">
+                        <span class="material-icons-round text-sm">save</span> Enregistrer
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Custom JS -->
-    <script src="../../js/main.js"></script>
-    <script src="../../js/dashboard.js"></script>
+    <script src="../../js/admin-modals.js"></script>
 </body>
 
 </html>

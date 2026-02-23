@@ -5,6 +5,12 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    // Prevent browser scroll restoration to fix "jump" on reload
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+
     // ===================================
     // Navigation Scroll Effect
     // ===================================
@@ -90,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (entry.isIntersecting) {
                 const statItems = entry.target.querySelectorAll('.stat-item h3');
                 statItems.forEach((item, index) => {
-                    const values = [500, 15, 3];
+                    const values = [500, 150, 98];
                     setTimeout(() => {
                         const value = values[index];
                         item.textContent = '0+';

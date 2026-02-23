@@ -33,10 +33,18 @@
     --gradient-green: linear-gradient(135deg, #28a745 0%, #5fd67a 100%);
 
     /* Shadows */
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
-    --shadow-colored: 0 8px 24px rgba(26, 106, 187, 0.3);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
+    --shadow-colored: 0 8px 24px rgba(26, 106, 187, 0.2);
+
+    /* Pastel UI Colors */
+    --pastel-blue: #E8F0FE;
+    --pastel-orange: #FFF3E0;
+    --pastel-green: #E8F5E9;
+    --pastel-purple: #F3E5F5;
+    --pastel-yellow: #FFFDE7;
+    --pastel-red: #FFEBEE;
 
     /* Typography */
     --font-primary: 'Poppins', sans-serif;
@@ -342,11 +350,13 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 80px 0;
+    padding: 82px 0 78px 0;
     overflow: hidden;
     background: var(--white);
     /* Ensure Hero is white */
 }
+
+
 
 /* Common Full Screen Section Class */
 .full-screen-section {
@@ -586,6 +596,69 @@ section:nth-of-type(odd) {
     box-shadow: 0 0 10px rgba(238, 153, 53, 0.8);
     animation: bouncePath 4s infinite ease-in-out;
     z-index: 10;
+}
+
+/* Feature Blobs */
+.feature-blob {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 3rem;
+    color: var(--white);
+    transition: var(--transition-normal);
+    position: relative;
+    z-index: 1;
+}
+
+.blob-shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    animation: morphBlob 8s ease-in-out infinite;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.blob-blue {
+    background: var(--gradient-blue);
+    animation-delay: 0s;
+}
+
+.blob-orange {
+    background: var(--gradient-secondary);
+    animation-delay: 2s;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+.blob-green {
+    background: var(--gradient-green);
+    animation-delay: 4s;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+@keyframes morphBlob {
+
+    0%,
+    100% {
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        transform: scale(1);
+    }
+
+    33% {
+        border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+        transform: scale(1.05);
+    }
+
+    66% {
+        border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+        transform: scale(0.95);
+    }
 }
 
 @keyframes bouncePath {
@@ -888,7 +961,7 @@ section {
 
 .programme-card {
     background: var(--white);
-    padding: 3rem;
+    padding: 2rem;
     border-radius: 24px;
     box-shadow: var(--shadow-md);
     position: relative;
@@ -1332,4 +1405,196 @@ section {
 
 .bg-gradient-green {
     background: var(--gradient-green);
+}
+
+/* ===================================
+   Playful UI Additions (Redesign)
+   =================================== */
+
+/* Pastel Background Utilities */
+.bg-pastel-blue {
+    background-color: var(--pastel-blue);
+}
+
+.bg-pastel-orange {
+    background-color: var(--pastel-orange);
+}
+
+.bg-pastel-green {
+    background-color: var(--pastel-green);
+}
+
+.bg-pastel-purple {
+    background-color: var(--pastel-purple);
+}
+
+.bg-pastel-yellow {
+    background-color: var(--pastel-yellow);
+}
+
+.bg-pastel-red {
+    background-color: var(--pastel-red);
+}
+
+/* Playful Cards */
+.card-playful {
+    border-radius: 30px;
+    padding: 2.5rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 3px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-playful:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-playful::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.card-playful>* {
+    position: relative;
+    z-index: 1;
+}
+
+.card-playful-blue {
+    background-color: var(--pastel-blue);
+}
+
+.card-playful-orange {
+    background-color: var(--pastel-orange);
+}
+
+.card-playful-green {
+    background-color: var(--pastel-green);
+}
+
+.card-playful-purple {
+    background-color: var(--pastel-purple);
+}
+
+.card-playful-yellow {
+    background-color: var(--pastel-yellow);
+}
+
+.card-playful-red {
+    background-color: var(--pastel-red);
+}
+
+/* Blob Image Masks */
+.blob-img-container {
+    position: relative;
+    display: inline-block;
+    padding: 20px;
+}
+
+.blob-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: morphBlob 8s ease-in-out infinite alternate;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    z-index: 2;
+}
+
+.blob-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-primary);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    opacity: 0.3;
+    z-index: 1;
+    animation: morphBlob 10s ease-in-out infinite alternate-reverse;
+}
+
+/* Wavy Dividers */
+.wave-divider {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 1;
+}
+
+.wave-top {
+    top: 0;
+    transform: translateY(-99%);
+}
+
+.wave-bottom {
+    bottom: 0;
+    transform: translateY(99%) rotate(180deg);
+}
+
+.wave-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 70px;
+}
+
+.wave-divider .shape-fill {
+    fill: var(--light-gray);
+}
+
+.wave-white .shape-fill {
+    fill: var(--white);
+}
+
+/* Floating Decorations */
+.float-icon {
+    position: absolute;
+    opacity: 0.6;
+    animation: floatCard 4s infinite ease-in-out;
+    z-index: 0;
+}
+
+.float-icon-1 {
+    top: 10%;
+    left: 5%;
+    color: var(--primary-orange);
+    font-size: 2rem;
+    animation-delay: 0s;
+}
+
+.float-icon-2 {
+    bottom: 20%;
+    right: 10%;
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    animation-delay: 1s;
+}
+
+.float-icon-3 {
+    top: 40%;
+    right: 5%;
+    color: var(--primary-green);
+    font-size: 2.5rem;
+    animation-delay: 2s;
+}
+
+.float-icon-4 {
+    bottom: 10%;
+    left: 15%;
+    color: var(--primary-red);
+    font-size: 1.8rem;
+    animation-delay: 3s;
 }

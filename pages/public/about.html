@@ -47,6 +47,9 @@
                         <a class="nav-link" href="programmes.html">Programmes</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="activites.html">Activités</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="galerie.html">Galerie</a>
                     </li>
                     <li class="nav-item">
@@ -63,60 +66,217 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section" style="min-height: 50vh;">
-        <div class="hero-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-        </div>
-        <div class="container">
+    <section class="hero-section text-center position-relative overflow-hidden bg-pastel-blue"
+        style="min-height: 50vh; padding: 100px 0;">
+        <i class="fas fa-star float-icon float-icon-1"></i>
+        <i class="fas fa-rocket float-icon float-icon-2"></i>
+        <i class="fas fa-graduation-cap float-icon float-icon-3"></i>
+
+        <div class="container position-relative z-2">
             <div class="row align-items-center justify-content-center text-center">
                 <div class="col-lg-8 hero-content">
-                    <h1 class="hero-title">
-                        À Propos de l'<span class="highlight">ANTA</span>
+                    <span class="badge bg-primary rounded-pill mb-3 px-3 py-2">DÉCOUVRIR ANTA</span>
+                    <h1 class="hero-title display-4 fw-bold mb-4" style="color: var(--primary-blue-dark);">
+                        ANTA — Académie pour le Numérique et la Technologie en Afrique
                     </h1>
-                    <p class="hero-description">
-                        Découvrez notre mission, notre vision et notre engagement envers l'éducation numérique en
-                        Afrique.
+                    <p class="hero-description lead text-muted mb-4">
+                        Notre mission est de libérer le potentiel créateur de chaque enfant du Bénin et d'Afrique, en
+                        leur donnant les outils pour comprendre et façonner le monde de demain.
                     </p>
+                    <div class="hero-buttons d-flex justify-content-center gap-3">
+                        <a href="#mission" class="btn btn-primary rounded-pill btn-lg shadow-sm fw-bold">
+                            Notre Mission <i class="fas fa-arrow-down ms-2"></i>
+                        </a>
+                        <a href="contact.html" class="btn btn-outline-primary rounded-pill btn-lg fw-bold">
+                            Contactez-nous
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wave-divider wave-bottom wave-white">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="features-section" id="mission">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="badge bg-warning text-dark mb-3 rounded-pill px-3 py-2">À propos de ANTA</span>
+                <h2 class="section-title fw-bold">Développer le potentiel créatif des enfants par le Numérique et la
+                    Technologie.</h2>
+                <p class="section-subtitle text-muted">Bien plus qu'une école de code, ANTA est un laboratoire
+                    d'innovation où les
+                    jeunes esprits apprennent à collaborer, à créer et à résoudre des problèmes concrets.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-playful card-playful-blue h-100 d-flex flex-column text-center">
+                        <div class="feature-icon mx-auto mb-4"
+                            style="background: rgba(255,255,255,0.5); color: var(--primary-blue); font-size: 2.5rem; width: 80px; height: 80px; box-shadow: none;">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="fw-bold text-dark">Mission</h3>
+                        <p class="text-muted">Démocratiser l'accès aux compétences technologiques de pointe
+                            (Programmation, Robotique, IA)
+                            pour tous les enfants.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-playful card-playful-orange h-100 d-flex flex-column text-center">
+                        <div class="feature-icon mx-auto mb-4"
+                            style="background: rgba(255,255,255,0.5); color: var(--primary-orange); font-size: 2.5rem; width: 80px; height: 80px; box-shadow: none;">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="fw-bold text-dark">Objectif</h3>
+                        <p class="text-muted">Préparer une nouvelle génération de leaders africains capables d'innover
+                            et de créer de la
+                            valeur locale.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-playful card-playful-green h-100 d-flex flex-column text-center">
+                        <div class="feature-icon mx-auto mb-4"
+                            style="background: rgba(255,255,255,0.5); color: var(--primary-green); font-size: 2.5rem; width: 80px; height: 80px; box-shadow: none;">
+                            <i class="fas fa-globe-africa"></i>
+                        </div>
+                        <h3 class="fw-bold text-dark">Tech Junior</h3>
+                        <p class="text-muted">Notre programme phare qui transforme les consommateurs passifs d'écrans en
+                            créateurs actifs
+                            de solutions.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mission Section -->
-    <section class="features-section">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2 class="section-title">Notre Mission</h2>
-                <p class="section-subtitle">Former la prochaine génération de leaders technologiques en Afrique</p>
+    <!-- Pedagogical Objectives Section -->
+    <section class="features-section bg-pastel-yellow position-relative">
+        <div class="wave-divider wave-top wave-white" style="transform: rotate(180deg); top: -1px;">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+        <div class="container position-relative z-2 py-5">
+            <div class="section-header text-center mt-5">
+                <h2 class="section-title fw-bold text-dark">Nos Objectifs Pédagogiques</h2>
+                <p class="section-subtitle text-muted">Au-delà du code, nous formons des esprits agiles</p>
             </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-bullseye"></i>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card-playful text-center h-100 bg-white shadow-sm p-4">
+                        <div class="feature-icon mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle"
+                            style="width: 70px; height: 70px; background: rgba(26, 106, 187, 0.1); color: var(--primary-blue); font-size: 2rem;">
+                            <i class="fas fa-brain"></i>
                         </div>
-                        <h3>Notre Vision</h3>
-                        <p>Devenir le centre d'excellence en éducation technologique pour les jeunes en Afrique de
-                            l'Ouest.</p>
+                        <h5 class="fw-bold text-dark">Logique & Résolution</h5>
+                        <p class="small text-muted mb-0">Développer l'esprit d'analyse face aux problèmes.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-heart"></i>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card-playful text-center h-100 bg-white shadow-sm p-4">
+                        <div class="feature-icon mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle"
+                            style="width: 70px; height: 70px; background: rgba(238, 153, 53, 0.1); color: var(--primary-orange); font-size: 2rem;">
+                            <i class="fas fa-lightbulb"></i>
                         </div>
-                        <h3>Nos Valeurs</h3>
-                        <p>Innovation, accessibilité, excellence et passion pour l'éducation numérique des jeunes.</p>
+                        <h5 class="fw-bold text-dark">Créativité Numérique</h5>
+                        <p class="small text-muted mb-0">S'exprimer à travers le code et le design.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-globe-africa"></i>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card-playful text-center h-100 bg-white shadow-sm p-4">
+                        <div class="feature-icon mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle"
+                            style="width: 70px; height: 70px; background: rgba(40, 167, 69, 0.1); color: var(--primary-green); font-size: 2rem;">
+                            <i class="fas fa-users"></i>
                         </div>
-                        <h3>Notre Impact</h3>
-                        <p>Plus de 500 élèves formés et un réseau grandissant de créateurs numériques.</p>
+                        <h5 class="fw-bold text-dark">Collaboration</h5>
+                        <p class="small text-muted mb-0">Savoir travailler en équipe sur des projets.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card-playful text-center h-100 bg-white shadow-sm p-4">
+                        <div class="feature-icon mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle"
+                            style="width: 70px; height: 70px; background: rgba(152, 25, 24, 0.1); color: var(--primary-red); font-size: 2rem;">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark">Citoyenneté Numérique</h5>
+                        <p class="small text-muted mb-0">Comprendre les enjeux éthiques du digital.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="why-choose-section position-relative py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0 text-center">
+                    <div class="blob-img-container" style="max-width: 500px; margin: 0 auto;">
+                        <div class="blob-bg" style="background: var(--gradient-accent);"></div>
+                        <img src="/images/image.png" alt="Pourquoi Tech Junior" class="blob-img"
+                            style="animation-duration: 12s;">
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <span class="badge bg-warning text-dark rounded-pill fw-bold mb-3 px-3 py-2 text-uppercase">Nos
+                        Atouts</span>
+                    <h2 class="section-title mb-4 display-6 fw-bold text-dark">Pourquoi choisir <span class="highlight"
+                            style="color: var(--primary-orange);">Tech Junior</span> ?</h2>
+                    <p class="mb-5 text-muted">Nous ne faisons pas qu'enseigner le code, nous forgeons le caractère et
+                        l'esprit d'innovation.</p>
+
+                    <div class="card-playful card-playful-orange p-4 mb-4" style="border-radius: 20px;">
+                        <div class="d-flex align-items-center">
+                            <div class="feature-icon me-3 mb-0 flex-shrink-0"
+                                style="background: rgba(255,255,255,0.6); color: var(--primary-orange); width: 60px; height: 60px; font-size: 1.5rem; box-shadow: none;">
+                                <i class="fas fa-hands-holding"></i>
+                            </div>
+                            <div>
+                                <h4 class="h5 fw-bold mb-1 text-dark">Pédagogie Active "Doing"</h4>
+                                <p class="mb-0 text-muted small">Apprentissage par la pratique via des projets concrets
+                                    et stimulants.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-playful card-playful-green p-4 mb-4" style="border-radius: 20px;">
+                        <div class="d-flex align-items-center">
+                            <div class="feature-icon me-3 mb-0 flex-shrink-0"
+                                style="background: rgba(255,255,255,0.6); color: var(--primary-green); width: 60px; height: 60px; font-size: 1.5rem; box-shadow: none;">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div>
+                                <h4 class="h5 fw-bold mb-1 text-dark">Encadrement Personnalisé</h4>
+                                <p class="mb-0 text-muted small">Petits groupes (max 12) pour un suivi attentif de
+                                    chaque enfant.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-playful card-playful-blue p-4" style="border-radius: 20px;">
+                        <div class="d-flex align-items-center">
+                            <div class="feature-icon me-3 mb-0 flex-shrink-0"
+                                style="background: rgba(255,255,255,0.6); color: var(--primary-blue); width: 60px; height: 60px; font-size: 1.5rem; box-shadow: none;">
+                                <i class="fas fa-smile"></i>
+                            </div>
+                            <div>
+                                <h4 class="h5 fw-bold mb-1 text-dark">Communauté Bienveillante</h4>
+                                <p class="mb-0 text-muted small">Un espace sûr pour grandir, échouer et réussir
+                                    ensemble.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -124,43 +284,55 @@
     </section>
 
     <!-- Team Section -->
-    <section class="programmes-section">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2 class="section-title">Notre Équipe</h2>
-                <p class="section-subtitle">Des professionnels passionnés au service de la jeunesse</p>
+    <section class="programmes-section bg-pastel-purple position-relative pb-5">
+        <div class="wave-divider wave-top wave-white" style="transform: rotate(180deg); top: -1px;">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+        <div class="container position-relative z-2 pt-5">
+            <div class="section-header text-center mt-5">
+                <span class="badge bg-white text-primary mb-3 rounded-pill px-3 py-2 shadow-sm">Notre Équipe</span>
+                <h2 class="section-title fw-bold text-dark">Nos Formateurs et Accompagnateurs</h2>
+                <p class="section-subtitle text-muted">Des professionnels passionnés au service de la jeunesse</p>
             </div>
             <div class="row g-4 justify-content-center">
                 <div class="col-md-6 col-lg-4">
-                    <div class="programme-card text-center">
-                        <div class="programme-icon">
+                    <div class="card-playful card-playful-blue text-center h-100 p-4">
+                        <div class="feature-icon mx-auto mb-4 d-flex align-items-center justify-content-center rounded-circle"
+                            style="width: 80px; height: 80px; background: rgba(255,255,255,0.5); color: var(--primary-blue); font-size: 2.5rem; box-shadow: none;">
                             <i class="fas fa-user-tie"></i>
                         </div>
-                        <h3>Direction</h3>
-                        <p class="programme-description">
+                        <h3 class="fw-bold text-dark">Direction</h3>
+                        <p class="text-muted mb-0">
                             Une équipe de direction expérimentée et visionnaire, dédiée à l'innovation pédagogique.
                         </p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="programme-card text-center">
-                        <div class="programme-icon">
+                    <div class="card-playful card-playful-orange text-center h-100 p-4">
+                        <div class="feature-icon mx-auto mb-4 d-flex align-items-center justify-content-center rounded-circle"
+                            style="width: 80px; height: 80px; background: rgba(255,255,255,0.5); color: var(--primary-orange); font-size: 2.5rem; box-shadow: none;">
                             <i class="fas fa-chalkboard-teacher"></i>
                         </div>
-                        <h3>Instructeurs</h3>
-                        <p class="programme-description">
+                        <h3 class="fw-bold text-dark">Instructeurs</h3>
+                        <p class="text-muted mb-0">
                             Plus de 15 instructeurs qualifiés, passionnés par l'enseignement de la technologie.
                         </p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="programme-card text-center">
-                        <div class="programme-icon">
+                    <div class="card-playful card-playful-green text-center h-100 p-4">
+                        <div class="feature-icon mx-auto mb-4 d-flex align-items-center justify-content-center rounded-circle"
+                            style="width: 80px; height: 80px; background: rgba(255,255,255,0.5); color: var(--primary-green); font-size: 2.5rem; box-shadow: none;">
                             <i class="fas fa-hands-helping"></i>
                         </div>
-                        <h3>Volontaires</h3>
-                        <p class="programme-description">
-                            Un réseau de volontaires engagés qui accompagnent les élèves dans leur apprentissage.
+                        <h3 class="fw-bold text-dark">Volontaires</h3>
+                        <p class="text-muted mb-0">
+                            Un réseau de volontaires engagés qui accompagnent les Tech Juniors dans leur apprentissage.
                         </p>
                     </div>
                 </div>
@@ -211,6 +383,10 @@
                         <li>
                             <i class="fas fa-envelope"></i>
                             <a href="mailto:contact@funtech.pro">contact@funtech.pro</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            Cotonou, Bénin
                         </li>
                     </ul>
                 </div>

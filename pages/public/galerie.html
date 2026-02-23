@@ -21,6 +21,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/gallery.css">
 </head>
 
 <body>
@@ -47,6 +48,9 @@
                         <a class="nav-link" href="programmes.html">Programmes</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="activites.html">Activités</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" href="galerie.html">Galerie</a>
                     </li>
                     <li class="nav-item">
@@ -63,100 +67,116 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section" style="min-height: 50vh;">
-        <div class="hero-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-        </div>
-        <div class="container">
-            <div class="row align-items-center justify-content-center text-center">
-                <div class="col-lg-8 hero-content">
-                    <h1 class="hero-title">
-                        Notre <span class="highlight">Galerie</span>
-                    </h1>
-                    <p class="hero-description">
-                        Revivez les moments forts de nos formations et activités.
-                    </p>
-                </div>
+    <section class="hero-section text-center position-relative overflow-hidden bg-pastel-green"
+        style="min-height: 40vh; padding: 100px 0;">
+        <i class="fas fa-camera float-icon float-icon-1"></i>
+        <i class="fas fa-image float-icon float-icon-2"></i>
+        <i class="fas fa-video float-icon float-icon-3"></i>
+
+        <div class="container position-relative z-2 h-100 d-flex align-items-center justify-content-center text-center">
+            <div>
+                <span class="badge bg-white text-primary rounded-pill fw-bold px-3 py-2 shadow-sm mb-3">SOUVENIRS</span>
+                <h1 class="display-4 fw-bold text-dark">Notre <span class="text-primary">Galerie</span></h1>
+                <p class="lead text-muted fw-medium">Plongez dans l'univers de nos Tech Juniors.</p>
             </div>
         </div>
+
     </section>
 
     <!-- Gallery Section -->
-    <section class="features-section">
+    <section class="gallery-container">
         <div class="container">
-            <div class="section-header text-center">
-                <h2 class="section-title">Photos & Moments</h2>
-                <p class="section-subtitle">Les meilleurs moments de l'ANTA en images</p>
-            </div>
 
             <!-- Filter Buttons -->
-            <div class="text-center mb-5">
-                <button class="btn btn-outline-custom me-2 active" onclick="filterGallery('all')">Tout</button>
-                <button class="btn btn-outline-custom me-2" onclick="filterGallery('cours')">Cours</button>
-                <button class="btn btn-outline-custom me-2" onclick="filterGallery('projets')">Projets</button>
-                <button class="btn btn-outline-custom me-2" onclick="filterGallery('events')">Événements</button>
+            <div class="gallery-filters mb-5 text-center">
+                <div
+                    class="d-inline-flex bg-white p-2 rounded-pill shadow-sm border border-light flex-wrap justify-content-center">
+                    <button class="btn-filter active rounded-pill fw-bold mx-1 border-0" data-filter="all">Tout</button>
+                    <button class="btn-filter rounded-pill fw-bold mx-1 border-0" data-filter="cours">Cours</button>
+                    <button class="btn-filter rounded-pill fw-bold mx-1 border-0" data-filter="projets">Projets</button>
+                    <button class="btn-filter rounded-pill fw-bold mx-1 border-0"
+                        data-filter="events">Événements</button>
+                    <button class="btn-filter rounded-pill fw-bold mx-1 border-0" data-filter="video">Vidéos</button>
+                </div>
             </div>
 
             <!-- Gallery Grid -->
-            <div class="row g-4" id="galleryGrid">
-                <div class="col-md-6 col-lg-4 gallery-item" data-category="cours">
-                    <div class="feature-card text-center" style="min-height: 250px;">
-                        <div class="feature-icon">
-                            <i class="fas fa-laptop-code" style="font-size: 3rem;"></i>
-                        </div>
-                        <h3>Session de Coding</h3>
-                        <p>Les élèves découvrent la programmation avec Scratch</p>
+            <div class="gallery-grid">
+                <!-- Item 1: Cours -->
+                <div class="gallery-item" data-category="cours" data-type="image"
+                    data-src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">
+                    <div class="media-type-icon"><i class="fas fa-image"></i></div>
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                        alt="Cours Coding">
+                    <div class="gallery-overlay">
+                        <h4>Atelier Scratch</h4>
+                        <p>Apprendre en s'amusant</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 gallery-item" data-category="projets">
-                    <div class="feature-card text-center" style="min-height: 250px;">
-                        <div class="feature-icon">
-                            <i class="fas fa-robot" style="font-size: 3rem;"></i>
-                        </div>
-                        <h3>Projet Robotique</h3>
-                        <p>Construction de robots par nos jeunes innovateurs</p>
+
+                <!-- Item 2: Projet -->
+                <div class="gallery-item" data-category="projets" data-type="image"
+                    data-src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">
+                    <div class="media-type-icon"><i class="fas fa-image"></i></div>
+                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                        alt="Projet Robot">
+                    <div class="gallery-overlay">
+                        <h4>Robotique</h4>
+                        <p>Construction et programmation</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 gallery-item" data-category="events">
-                    <div class="feature-card text-center" style="min-height: 250px;">
-                        <div class="feature-icon">
-                            <i class="fas fa-trophy" style="font-size: 3rem;"></i>
-                        </div>
-                        <h3>Remise de Certificats</h3>
-                        <p>Cérémonie de remise de certificats — Session 2024</p>
+
+                <!-- Item 3: Event -->
+                <div class="gallery-item" data-category="events" data-type="image"
+                    data-src="https://images.unsplash.com/photo-1528642474493-227685b69bbd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">
+                    <div class="media-type-icon"><i class="fas fa-image"></i></div>
+                    <img src="https://images.unsplash.com/photo-1528642474493-227685b69bbd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                        alt="Remise Diplômes">
+                    <div class="gallery-overlay">
+                        <h4>Remise de Certificats</h4>
+                        <p>Fierté et réussite</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 gallery-item" data-category="cours">
-                    <div class="feature-card text-center" style="min-height: 250px;">
-                        <div class="feature-icon">
-                            <i class="fas fa-gamepad" style="font-size: 3rem;"></i>
-                        </div>
-                        <h3>Game Dev Workshop</h3>
-                        <p>Atelier de création de jeux vidéo</p>
+
+                <!-- Item 4: Video (Placeholder) -->
+                <div class="gallery-item" data-category="video" data-type="video"
+                    data-src="../../images/sample-video.mp4">
+                    <!-- Note: Need a real video path or placeholder. Using a dummy path for now. -->
+                    <div class="media-type-icon"><i class="fas fa-play"></i></div>
+                    <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                        alt="Vidéo Démo">
+                    <div class="gallery-overlay">
+                        <h4>Demo Day</h4>
+                        <p>Présentation des projets (Vidéo)</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 gallery-item" data-category="projets">
-                    <div class="feature-card text-center" style="min-height: 250px;">
-                        <div class="feature-icon">
-                            <i class="fas fa-globe" style="font-size: 3rem;"></i>
-                        </div>
-                        <h3>Projet Web</h3>
-                        <p>Les élèves créent leurs premiers sites web</p>
+
+                <!-- Item 5: Cours -->
+                <div class="gallery-item" data-category="cours" data-type="image"
+                    data-src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">
+                    <div class="media-type-icon"><i class="fas fa-image"></i></div>
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                        alt="Classe">
+                    <div class="gallery-overlay">
+                        <h4>Salle de classe</h4>
+                        <p>Concentration et créativité</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 gallery-item" data-category="events">
-                    <div class="feature-card text-center" style="min-height: 250px;">
-                        <div class="feature-icon">
-                            <i class="fas fa-users" style="font-size: 3rem;"></i>
-                        </div>
-                        <h3>Journée Portes Ouvertes</h3>
-                        <p>Découverte de nos installations et programmes</p>
-                    </div>
-                </div>
+
             </div>
         </div>
+
+
     </section>
+
+    <!-- Modal -->
+    <div class="gallery-modal">
+        <button class="modal-close">&times;</button>
+        <div class="modal-content-wrapper">
+            <!-- Media injected here via JS -->
+        </div>
+        <div class="modal-caption">Titre de l'image</div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -180,6 +200,7 @@
                         <li><a href="../../index.html">Accueil</a></li>
                         <li><a href="about.html">À Propos</a></li>
                         <li><a href="programmes.html">Programmes</a></li>
+                        <li><a href="activites.html">Activités</a></li>
                         <li><a href="galerie.html">Galerie</a></li>
                     </ul>
                 </div>
@@ -202,6 +223,10 @@
                             <i class="fas fa-envelope"></i>
                             <a href="mailto:contact@funtech.pro">contact@funtech.pro</a>
                         </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            Cotonou, Bénin
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -216,25 +241,7 @@
 
     <!-- Custom JS -->
     <script src="../../js/main.js"></script>
-
-    <!-- Gallery Filter Script -->
-    <script>
-        function filterGallery(category) {
-            const items = document.querySelectorAll('.gallery-item');
-            const buttons = document.querySelectorAll('.btn-outline-custom');
-
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-
-            items.forEach(item => {
-                if (category === 'all' || item.dataset.category === category) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-    </script>
+    <script src="../../js/gallery.js"></script>
 </body>
 
 </html>
